@@ -63,9 +63,40 @@ export default function About() {
           {/* Main Narrative Glass Box */}
           <div className="glass-panel" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '1.2rem' }}>
+              {/* Profile Avatar Header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '1.5rem' }}>
+                <div
+                  style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    border: '3px solid var(--accent-cyan)',
+                    boxShadow: 'var(--shadow-glow)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img
+                    src="./assests/photo.jpg"
+                    alt={personalInfo.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = './assets/photo.jpg';
+                    }}
+                  />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0 }}>{personalInfo.name}</h3>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
+                    Double Major Scholar & Tech Founder
+                  </div>
+                </div>
+              </div>
+
+              <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-primary)' }}>
                 Integrative Engineering & Scientific Innovation
-              </h3>
+              </h4>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
                 {personalInfo.bio}
               </p>

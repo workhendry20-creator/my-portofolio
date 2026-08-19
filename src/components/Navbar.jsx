@@ -55,22 +55,28 @@ export default function Navbar({ theme, toggleTheme }) {
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Brand Logo */}
+        {/* Brand Logo with Profile Avatar */}
         <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 800, fontSize: '1.35rem' }}>
           <div
             style={{
               width: '38px',
               height: '38px',
-              borderRadius: 'var(--radius-md)',
-              background: 'var(--gradient-primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff',
-              boxShadow: 'var(--shadow-glow)'
+              borderRadius: '50%',
+              overflow: 'hidden',
+              border: '2px solid var(--accent-cyan)',
+              boxShadow: 'var(--shadow-glow)',
+              flexShrink: 0
             }}
           >
-            <Code2 size={22} />
+            <img
+              src="./assests/photo.jpg"
+              alt={personalInfo.name}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = './assets/photo.jpg';
+              }}
+            />
           </div>
           <span>
             {personalInfo.name.split(' ')[0]}<span className="gradient-text">.{personalInfo.name.split(' ')[1] || 'dev'}</span>
