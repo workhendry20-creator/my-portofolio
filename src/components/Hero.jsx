@@ -292,15 +292,18 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Full-Space Cutout Photo - NO FRAME & NO OUTLINE with 3D Cursor Movement */}
+          {/* Right Column: Full-Space Cutout Photo - Flush Bottom Alignment */}
           <div
             style={{
               width: '100%',
               height: '100%',
+              maxHeight: '86vh',
               display: 'flex',
               alignItems: 'flex-end',
               justifyContent: 'flex-end',
-              position: 'relative'
+              position: 'relative',
+              overflow: 'hidden',
+              clipPath: 'inset(0 0 0 0)'
             }}
           >
             <div
@@ -312,7 +315,7 @@ export default function Hero() {
                 transformOrigin: 'bottom center',
                 transform: `
                   perspective(1000px)
-                  scale(1.25)
+                  scale(1.22)
                   translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 0)
                   rotateY(${mousePos.x * 10}deg)
                   rotateX(${-mousePos.y * 10}deg)
@@ -326,12 +329,13 @@ export default function Hero() {
                 alt={personalInfo.name}
                 style={{
                   width: 'auto',
-                  height: '88vh',
-                  maxHeight: '92vh',
+                  height: '86vh',
+                  maxHeight: '90vh',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center',
-                  filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.45))',
+                  marginBottom: '-4px',
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45))',
                   display: 'block'
                 }}
                 onError={(e) => {
