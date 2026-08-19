@@ -123,6 +123,7 @@ export default function Hero() {
                 color: 'var(--text-primary)'
               }}
             >
+              Hi, I'm{' '}
               <span
                 style={{
                   background: 'linear-gradient(to right, #06b6d4, #2563eb, #9333ea)',
