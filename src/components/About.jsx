@@ -79,10 +79,13 @@ export default function About() {
                 <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> S1 Information Systems UNIBI (GPA 3.70 / 4.00)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> S1 Physical Science UIN Sunan Gunung Djati
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> S1 Physics UIN Sunan Gunung Djati (Final Year)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> CEO @ Webtizen.id & Deputy Chair @ IYD West Java
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> CEO @ Webtizen.id
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> Deputy Chair @ IYD West Java
               </div>
             </div>
           </div>

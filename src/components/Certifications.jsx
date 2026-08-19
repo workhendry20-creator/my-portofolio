@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Award, ShieldCheck, Calendar, ExternalLink, ChevronDown, ChevronUp, Sparkles, CheckCircle2, FileCheck } from 'lucide-react';
+import { Award, ShieldCheck, Calendar, ChevronDown, ChevronUp, CheckCircle2, FileCheck, Eye, X } from 'lucide-react';
 import { certificationsData } from '../data/portfolioData';
 
 export default function Certifications() {
   const [showAll, setShowAll] = useState(false);
+  const [activeModalImage, setActiveModalImage] = useState(null);
 
   // Show top 3 certifications initially, expand to all when showAll is true
   const visibleCertifications = showAll ? certificationsData : certificationsData.slice(0, 3);
@@ -20,7 +21,7 @@ export default function Certifications() {
             Certifications & <span className="gradient-text">Accreditations</span>
           </h2>
           <p className="section-subtitle">
-            Industry certifications and academic accreditations spanning Google, IBM Cognitive Class, AWS, and USM International Research.
+            Official certificate credentials spanning Google, IBM Cognitive Class, AWS, Kaggle, RevoU, and Scientific Research.
           </p>
         </div>
 
@@ -44,99 +45,129 @@ export default function Certifications() {
                 position: 'relative'
               }}
             >
-              {/* Certificate Top Image / Gradient Visual Banner */}
+              {/* Top Certificate Image Header */}
               <div
                 style={{
-                  height: '160px',
-                  background: cert.imageGradient,
+                  height: '210px',
+                  background: cert.imageGradient || 'var(--gradient-primary)',
                   position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  padding: '1.2rem'
+                  overflow: 'hidden',
+                  cursor: cert.image ? 'pointer' : 'default'
                 }}
+                onClick={() => cert.image && setActiveModalImage(cert)}
               >
-                {/* Top Badge & Year */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span
+                {cert.image ? (
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
                     style={{
-                      padding: '0.3rem 0.75rem',
-                      borderRadius: 'var(--radius-full)',
-                      background: 'rgba(0, 0, 0, 0.45)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#ffffff',
-                      fontSize: '0.78rem',
-                      fontWeight: 700,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.3rem'
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.4s ease'
                     }}
-                  >
-                    <FileCheck size={14} /> {cert.badge}
-                  </span>
+                    className="cert-img-hover"
+                    onError={(e) => {
+                      // Fallback if path changes
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : null}
 
-                  <span
-                    style={{
-                      padding: '0.3rem 0.7rem',
-                      borderRadius: 'var(--radius-full)',
-                      background: 'rgba(0, 0, 0, 0.35)',
-                      backdropFilter: 'blur(8px)',
-                      color: '#ffffff',
-                      fontSize: '0.78rem',
-                      fontWeight: 600,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.3rem'
-                    }}
-                  >
-                    <Calendar size={13} /> {cert.year}
-                  </span>
-                </div>
+                {/* Dark Gradient Overlay for Badges */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    padding: '1rem',
+                    pointerEvents: 'none'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span
+                      style={{
+                        padding: '0.3rem 0.75rem',
+                        borderRadius: 'var(--radius-full)',
+                        background: 'rgba(0, 0, 0, 0.65)',
+                        backdropFilter: 'blur(8px)',
+                        color: '#ffffff',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.3rem'
+                      }}
+                    >
+                      <FileCheck size={14} /> {cert.badge}
+                    </span>
 
-                {/* Banner Certificate Title */}
-                <div>
-                  <div
-                    style={{
-                      fontSize: '0.8rem',
-                      color: 'rgba(255, 255, 255, 0.85)',
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      marginBottom: '0.2rem'
-                    }}
-                  >
-                    {cert.issuer}
+                    <span
+                      style={{
+                        padding: '0.3rem 0.7rem',
+                        borderRadius: 'var(--radius-full)',
+                        background: 'rgba(0, 0, 0, 0.55)',
+                        backdropFilter: 'blur(8px)',
+                        color: '#ffffff',
+                        fontSize: '0.78rem',
+                        fontWeight: 600,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.3rem'
+                      }}
+                    >
+                      <Calendar size={13} /> {cert.year}
+                    </span>
                   </div>
-                  <h3
-                    style={{
-                      fontSize: '1.2rem',
-                      color: '#ffffff',
-                      fontWeight: 800,
-                      lineHeight: 1.25,
-                      textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-                    }}
-                  >
-                    {cert.title}
-                  </h3>
+
+                  {cert.image && (
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                      <span
+                        style={{
+                          padding: '0.3rem 0.6rem',
+                          borderRadius: 'var(--radius-md)',
+                          background: 'rgba(0, 0, 0, 0.7)',
+                          color: 'var(--accent-cyan)',
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.3rem',
+                          pointerEvents: 'auto'
+                        }}
+                      >
+                        <Eye size={14} /> Click to View Certificate
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Certificate Body */}
+              {/* Certificate Details Body */}
               <div style={{ padding: '1.8rem', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
                 <div>
                   <div
                     style={{
-                      fontSize: '0.88rem',
+                      fontSize: '0.85rem',
                       color: 'var(--accent-cyan)',
-                      fontWeight: 600,
-                      marginBottom: '0.8rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem'
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                      marginBottom: '0.3rem'
                     }}
                   >
-                    <ShieldCheck size={16} /> Official Verified Accreditation
+                    {cert.issuer}
                   </div>
+
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '0.8rem', lineHeight: 1.35 }}>
+                    {cert.title}
+                  </h3>
 
                   <p
                     style={{
@@ -184,7 +215,7 @@ export default function Certifications() {
                   >
                     <span>ID: <code style={{ fontFamily: 'var(--font-code)' }}>{cert.credentialId}</code></span>
                     <span style={{ color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '0.2rem', fontWeight: 600 }}>
-                      <CheckCircle2 size={13} /> Authenticated
+                      <CheckCircle2 size={13} /> Verified
                     </span>
                   </div>
                 </div>
@@ -213,6 +244,74 @@ export default function Certifications() {
           </div>
         )}
       </div>
+
+      {/* Certificate Image Zoom Modal */}
+      {activeModalImage && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1000,
+            background: 'rgba(0, 0, 0, 0.85)',
+            backdropFilter: 'blur(12px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem'
+          }}
+          onClick={() => setActiveModalImage(null)}
+        >
+          <div
+            className="glass-panel"
+            style={{
+              maxWidth: '850px',
+              width: '100%',
+              padding: '1.5rem',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              maxHeight: '90vh',
+              overflowY: 'auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800 }}>{activeModalImage.title}</h3>
+                <div style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)' }}>{activeModalImage.issuer}</div>
+              </div>
+              <button
+                onClick={() => setActiveModalImage(null)}
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'var(--bg-tertiary)',
+                  color: 'var(--text-primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid var(--border-light)'
+                }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-light)' }}>
+              <img
+                src={activeModalImage.image}
+                alt={activeModalImage.title}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
