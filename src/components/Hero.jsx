@@ -315,10 +315,10 @@ export default function Hero() {
                 transformOrigin: 'bottom center',
                 transform: `
                   perspective(1000px)
-                  scale(1.22)
-                  translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 0)
-                  rotateY(${mousePos.x * 10}deg)
-                  rotateX(${-mousePos.y * 10}deg)
+                  scale(1.08)
+                  translate3d(${mousePos.x * 20}px, ${mousePos.y * 16}px, 0)
+                  rotateY(${mousePos.x * 9}deg)
+                  rotateX(${-mousePos.y * 9}deg)
                 `,
                 transition: 'transform 0.15s cubic-bezier(0.2, 0, 0.2, 1)',
                 willChange: 'transform'
@@ -329,8 +329,8 @@ export default function Hero() {
                 alt={personalInfo.name}
                 style={{
                   width: 'auto',
-                  height: '86vh',
-                  maxHeight: '90vh',
+                  height: '78vh',
+                  maxHeight: '82vh',
                   maxWidth: 'none',
                   objectFit: 'contain',
                   objectPosition: 'bottom center',
