@@ -252,6 +252,7 @@ export const certificationsData = [
     badge: "Google Certified 📜",
     category: "Google",
     credentialId: "GDEV-360-98421",
+    imageGradient: "linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%)",
     description: "Certification in digital campaign management, 360-degree brand strategy, data-driven ad analytics, and user engagement tracking.",
     skills: ["Campaign Management", "Digital Strategy", "Analytics 360", "Brand Growth"]
   },
@@ -260,9 +261,10 @@ export const certificationsData = [
     title: "SQL & Relational Database Certification (100% Score)",
     issuer: "Cognitive Class (IBM)",
     year: "2024",
-    badge: "Perfect Score 🎯",
+    badge: "Perfect Score 🎯 100%",
     category: "Data & DB",
     credentialId: "IBM-CC-SQL-100",
+    imageGradient: "linear-gradient(135deg, #052F5F 0%, #006699 50%, #0099CC 100%)",
     description: "Achieved 100% perfect score in Relational Database design, SQL query optimization, indexing, schema modeling, and data manipulation.",
     skills: ["SQL", "Relational Database", "Schema Design", "Query Optimization"]
   },
@@ -271,9 +273,10 @@ export const certificationsData = [
     title: "Python for Data Science & Machine Learning (98% Score)",
     issuer: "Cognitive Class (IBM)",
     year: "2024",
-    badge: "High Distinction 📊",
+    badge: "High Distinction 📊 98%",
     category: "Data Science",
     credentialId: "IBM-CC-PY-98",
+    imageGradient: "linear-gradient(135deg, #3776AB 0%, #FFD43B 50%, #4B8BBE 100%)",
     description: "Achieved 98% score in Python programming for Data Science, Pandas dataframes, NumPy array computing, and predictive ML modeling.",
     skills: ["Python", "Data Science", "Pandas", "Scikit-Learn"]
   },
@@ -285,17 +288,19 @@ export const certificationsData = [
     badge: "AWS Verified ☁️",
     category: "Cloud & ML",
     credentialId: "AWS-KAG-ML-772",
+    imageGradient: "linear-gradient(135deg, #FF9900 0%, #232F3E 50%, #FF9900 100%)",
     description: "Foundational mastery in AWS cloud machine learning tools, model training, evaluation metrics, and serverless AI deployment pipelines.",
     skills: ["AWS", "Machine Learning", "Model Training", "Cloud Pipeline"]
   },
   {
     id: "usm-cv-cert",
-    title: "Computer Vision & Thermal Image Analysis Specialist",
+    title: "Computer Vision & Thermal Image Specialist",
     issuer: "Universiti Sains Malaysia (USM)",
     year: "2026",
     badge: "USM International 🔬",
     category: "Research & Vision",
     credentialId: "USM-CV-2026-08",
+    imageGradient: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F43F5E 100%)",
     description: "Specialized international research certification for Python OpenCV PV thermal image feature extraction and custom Web Physics Engines.",
     skills: ["OpenCV", "Thermal Imaging", "Python", "Physics Modeling"]
   },
@@ -307,6 +312,7 @@ export const certificationsData = [
     badge: "DevFest Award 🏆",
     category: "Development",
     credentialId: "DEVFEST-2024-WINNER",
+    imageGradient: "linear-gradient(135deg, #10B981 0%, #06B6D4 50%, #3B82F6 100%)",
     description: "Official award certification recognizing the development of Momoped pet shop e-commerce platform with exceptional full-stack UI/UX.",
     skills: ["React", "Full-Stack", "Web Architecture", "UI/UX"]
   }
