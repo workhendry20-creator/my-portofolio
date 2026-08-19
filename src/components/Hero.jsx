@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, CheckCircle2, PhoneCall } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Hero() {
@@ -28,8 +28,8 @@ export default function Hero() {
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '0.8rem',
-        paddingBottom: '1rem'
+        paddingTop: '0.3rem',
+        paddingBottom: '0.1rem'
       }}
     >
       {/* Background Faint Geometric Grid Overlay */}
@@ -269,6 +269,27 @@ export default function Hero() {
                 }}
               >
                 <Instagram size={19} />
+              </a>
+              <a
+                href={personalInfo.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: 'rgba(16, 185, 129, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent-emerald)',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  transition: 'transform 0.2s ease'
+                }}
+              >
+                <PhoneCall size={19} />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
