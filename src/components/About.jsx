@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Code2, Users, GitCommit, CheckCircle2, User, Zap, Shield, HeartHandshake, GradCap, Sparkles, Trophy, Compass, Globe } from 'lucide-react';
+import { Award, Code2, Users, GitCommit, CheckCircle2, User, Zap, Shield, HeartHandshake, Sparkles, Trophy, Compass, Globe } from 'lucide-react';
 import { personalInfo, statsData, achievementsData } from '../data/portfolioData';
 
 const iconMap = {
