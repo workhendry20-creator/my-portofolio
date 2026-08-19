@@ -32,21 +32,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600" rel="stylesheet">
-    
-    <!-- Production & Static CSS Bundle -->
-    <link rel="stylesheet" href="./assets/main.css" />
   </head>
   <body>
     <div id="root"></div>
-    
-    <!-- Production & Static JS Bundle -->
-    <script type="module" src="./assets/index.js"></script>
-
-    <!-- Vite Dev Server Fallback (Active on localhost:3000) -->
-    <script type="module">
-      if (window.location.port === '3000' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-        import('/src/main.jsx');
-      }
-    </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

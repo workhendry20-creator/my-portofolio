@@ -5,13 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: './',
   build: {
-    rollupOptions: {
-      output: {
-        entryFileNames: 'assets/index.js',
-        chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
-      }
-    }
+    outDir: 'dist'
   },
   server: {
     port: 3000,
