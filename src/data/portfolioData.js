@@ -248,7 +248,7 @@ export const certificationsData = [
     id: "aws-ml",
     title: "Fundamentals of Machine Learning and AI",
     issuer: "AWS Training & Certification",
-    year: "August 14, 2026",
+    year: "Aug, 2026",
     badge: "AWS Verified ☁️",
     category: "Cloud & AI",
     credentialId: "AWS-ML-AI-2026",
@@ -260,8 +260,8 @@ export const certificationsData = [
   {
     id: "kaggle-ds",
     title: "Intro to Machine Learning",
-    issuer: "Kaggle (Dan Becker & Alexis Cook)",
-    year: "August 14, 2026",
+    issuer: "Kaggle",
+    year: "Aug, 2026",
     badge: "Kaggle Verified 🏅",
     category: "Data Science",
     credentialId: "KAG-ML-2026-08",
@@ -274,7 +274,7 @@ export const certificationsData = [
     id: "revou-tech",
     title: "Intro to Data Analytics",
     issuer: "RevoU Academy (PT Revolusi Cita Edukasi)",
-    year: "August 8, 2025",
+    year: "Aug, 2025",
     badge: "RevoU Certified 🚀",
     category: "Data Analytics",
     credentialId: "DAMC-04082025-01-1-00678",
@@ -287,7 +287,7 @@ export const certificationsData = [
     id: "waste-tech",
     title: "Pengolahan Sampah Organik Dasar (TMT)",
     issuer: "BBPVP Bandung - Kemnaker RI",
-    year: "February 13, 2025",
+    year: "Feb, 2025",
     badge: "Kemnaker RI 🇮🇩",
     category: "Vokasi & Reseacrh",
     credentialId: "2.5/317/LP.00.05/11/2025",
@@ -300,7 +300,7 @@ export const certificationsData = [
     id: "gdev-360",
     title: "Ujian Sertifikasi Campaign Manager 360",
     issuer: "Google Skillshop / Developer",
-    year: "January 10, 2025",
+    year: "Jan, 2025",
     badge: "Google Certified 📜",
     category: "Google",
     credentialId: "129325160",
@@ -313,7 +313,7 @@ export const certificationsData = [
     id: "devfest-cert",
     title: "Best Web Application Award (Momoped)",
     issuer: "DevFest UNIBI 2024",
-    year: "November 2024",
+    year: "Nov 2024",
     badge: "DevFest Winner 🏆",
     category: "Development",
     credentialId: "DEVFEST-2024-WINNER",
@@ -325,7 +325,7 @@ export const certificationsData = [
     id: "ibm-python-ds",
     title: "Python 101 for Data Science (PY0101EN)",
     issuer: "Cognitive Class (IBM)",
-    year: "June 3, 2024",
+    year: "Jun, 2024",
     badge: "Pass Grade 📊 98%",
     category: "Data Science",
     credentialId: "301e618c309444869d7cb041657d1b5c",
@@ -338,7 +338,7 @@ export const certificationsData = [
     id: "ibm-sql",
     title: "SQL and Relational Databases 101 (DB0101EN)",
     issuer: "Cognitive Class (IBM)",
-    year: "April 24, 2024",
+    year: "Apr, 2024",
     badge: "Perfect Score 🎯 100%",
     category: "Data & DB",
     credentialId: "9e2ecd9fef05485d8518ff42565e127f",
@@ -348,4 +348,25 @@ export const certificationsData = [
     skills: ["SQL", "Relational Database", "Schema Design", "Query Optimization"]
   }
 ];
+
+export const languagesData = [
+  {
+    name: "Indonesian (Bahasa Indonesia)",
+    proficiency: "Native / Native Speaker",
+    level: 100,
+    flag: "🇮🇩",
+    badge: "Native Speaker",
+    description: "Native fluency in written, spoken, and professional business & technical communications."
+  },
+  {
+    name: "English",
+    proficiency: "Professional Working & Academic Proficiency",
+    level: 90,
+    flag: "🇬🇧",
+    badge: "Certified / Advanced",
+    description: "Certified fluency for international research (USM Malaysia), Y20 & ASEAN Youth Summit diplomacy, and global tech collaboration.",
+    certification: "EF SET / TOEFL Certified Proficiency"
+  }
+];
+
 
