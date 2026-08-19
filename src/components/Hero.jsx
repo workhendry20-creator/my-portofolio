@@ -325,7 +325,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="./assests/hendry.png"
+                src="./assests/final_cutout.png"
                 alt={personalInfo.name}
                 style={{
                   width: 'auto',
@@ -340,7 +340,7 @@ export default function Hero() {
                 }}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = './assets/hendry.png';
+                  e.target.src = './assets/final_cutout.png';
                 }}
               />
             </div>
