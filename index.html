@@ -33,20 +33,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600" rel="stylesheet">
     
-    <!-- Universal Static Preview & Dev Server Loader -->
+    <!-- Universal Hybrid Loader for GitHub Pages, Static IDE Webviews & Vite Dev Server -->
     <script>
       (function() {
         var isViteDev = (window.location.port === '3000' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
         if (!isViteDev) {
-          var css = document.createElement('link');
-          css.rel = 'stylesheet';
-          css.href = './dist/assets/main.css';
-          document.head.appendChild(css);
+          var isLocalFile = (window.location.protocol === 'file:');
+          var isIDEPreview = (window.location.port !== '' && window.location.port !== '80' && window.location.port !== '443' && !window.location.hostname.includes('github.io'));
+          
+          var basePath = (isLocalFile || isIDEPreview) ? './dist/assets/' : './assets/';
+          
+          if (!document.querySelector('link[data-app-css]')) {
+            var css = document.createElement('link');
+            css.rel = 'stylesheet';
+            css.setAttribute('data-app-css', 'true');
+            css.href = basePath + 'main.css';
+            document.head.appendChild(css);
+          }
 
-          var js = document.createElement('script');
-          js.type = 'module';
-          js.src = './dist/assets/index.js';
-          document.head.appendChild(js);
+          if (!document.querySelector('script[data-app-js]')) {
+            var js = document.createElement('script');
+            js.type = 'module';
+            js.setAttribute('data-app-js', 'true');
+            js.src = basePath + 'index.js';
+            document.head.appendChild(js);
+          }
         }
       })();
     </script>
