@@ -28,8 +28,8 @@ export default function Hero() {
         alignItems: 'center',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '5rem',
-        paddingBottom: '2rem'
+        paddingTop: '2.5rem',
+        paddingBottom: '1.5rem'
       }}
     >
       {/* Background Faint Geometric Grid Overlay */}
