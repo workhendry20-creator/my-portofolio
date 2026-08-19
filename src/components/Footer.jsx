@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Twitter, Mail, Code2, Heart } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Instagram, Mail, Code2, Heart } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
@@ -47,8 +47,8 @@ export default function Footer() {
               </div>
               <span>{personalInfo.name}</span>
             </a>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', maxWidth: '400px' }}>
-              Building modern, accessible, and high-performance digital software.
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', maxWidth: '420px' }}>
+              Bridging Software Engineering, Physical Science Simulation, and Data Analytics.
             </p>
           </div>
 
@@ -92,6 +92,26 @@ export default function Footer() {
               }}
             >
               <Linkedin size={20} />
+            </a>
+            <a
+              href={personalInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: 'var(--radius-full)',
+                background: 'var(--bg-tertiary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--text-secondary)',
+                border: '1px solid var(--border-light)',
+                transition: 'all var(--transition-fast)'
+              }}
+            >
+              <Instagram size={20} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}

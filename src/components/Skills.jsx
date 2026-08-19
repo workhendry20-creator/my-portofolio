@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Cpu, Layout, Server, Cloud, Brain, Sparkles } from 'lucide-react';
+import { Cpu, Layout, BarChart3, Palette, Sparkles } from 'lucide-react';
 import { skillCategories } from '../data/portfolioData';
 
 const categoryIconMap = {
   Layout: Layout,
-  Server: Server,
-  Cloud: Cloud,
-  Brain: Brain
+  BarChart3: BarChart3,
+  Cpu: Cpu,
+  Palette: Palette
 };
 
 export default function Skills() {
@@ -19,13 +19,13 @@ export default function Skills() {
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
-            <Cpu size={14} /> Skills & Expertise
+            <Cpu size={14} /> Technical Stack & Skills
           </div>
           <h2 className="section-title">
-            Technologies <span className="gradient-text">I Command</span>
+            Engineering & Scientific <span className="gradient-text">Competencies</span>
           </h2>
           <p className="section-subtitle">
-            A comprehensive overview of my technical stack, framework mastery, and engineering toolsets.
+            Categorized skills spanning Full-Stack Web Development, Data Science, Scientific Research Tools, and Digital Branding.
           </p>
         </div>
 
@@ -128,10 +128,10 @@ export default function Skills() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
-            <Sparkles size={18} /> Additional Tools & Methodologies
+            <Sparkles size={18} /> Complete Toolset & Scientific Utilities
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.8rem' }}>
-            {['Git & GitHub', 'REST APIs', 'GraphQL', 'Webpack / Vite', 'Jest & Cypress', 'Agile / Scrum', 'CI/CD', 'Figma', 'System Architecture', 'Microservices', 'Clean Code'].map((item, i) => (
+            {['Python & OpenCV', 'NumPy & Scikit-Learn', 'Tracker Motion Analyst', 'Phyphox Sensor Lab', 'Cisco Packet Tracer', 'SQL Relational DBs', 'Tableau & IBM SPSS', 'Canva & CapCut', 'HTML5/CSS3', 'Git & GitHub', 'VS Code'].map((item, i) => (
               <span
                 key={i}
                 style={{

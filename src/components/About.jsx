@@ -1,83 +1,95 @@
 import React from 'react';
-import { Award, Code2, Users, GitCommit, CheckCircle2, User, Zap, Shield, HeartHandshake } from 'lucide-react';
-import { personalInfo, statsData } from '../data/portfolioData';
+import { Award, Code2, Users, GitCommit, CheckCircle2, User, Zap, Shield, HeartHandshake, GradCap, Sparkles, Trophy, Compass, Globe } from 'lucide-react';
+import { personalInfo, statsData, achievementsData } from '../data/portfolioData';
 
 const iconMap = {
   Award: Award,
-  Code2: Code2,
-  Users: Users,
-  GitCommit: GitCommit
+  Trophy: Trophy,
+  CheckCircle2: CheckCircle2,
+  Users: Users
 };
 
 export default function About() {
-  const principles = [
+  const bentoPillars = [
     {
-      title: "Performance First",
-      desc: "Optimizing DOM renders, bundle sizes, and query latencies to deliver lightning-fast applications.",
-      icon: Zap
+      title: "1. Academic Excellence (Double Degree)",
+      subtitle: "S1 Info Systems (UNIBI - GPA 3.70) & S1 Physical Science (UIN SGD)",
+      desc: "Combining system architecture, relational database modeling, and physical science analytics for deep problem-solving.",
+      icon: Award,
+      badge: "Double Major Scholar"
     },
     {
-      title: "Clean Architecture",
-      desc: "Writing modular, self-documenting code with strong typing and automated test coverage.",
-      icon: Shield
+      title: "2. Tech & Research (Computer Vision & Web Physics Engine)",
+      subtitle: "Universiti Sains Malaysia (USM) International Research",
+      desc: "Developed automated thermal Photovoltaic (PV) image processing in OpenCV/Python and built interactive HTML5 Web Physics Canvas engines.",
+      icon: Zap,
+      badge: "USM Research Intern"
     },
     {
-      title: "User-Centric Design",
-      desc: "Merging pixel-perfect visuals with fluid micro-interactions and high accessibility standards.",
-      icon: HeartHandshake
+      title: "3. Leadership & Entrepreneurship",
+      subtitle: "CEO @ Webtizen.id & Deputy Chair @ IYD West Java",
+      desc: "Empowering local Indonesian MSMEs through web profile solutions and leading youth diplomacy forums & ASEAN delegations.",
+      icon: Globe,
+      badge: "Tech Leader & Founder"
     }
   ];
 
   return (
     <section id="about" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
           <div className="section-tag">
             <User size={14} /> About Me
           </div>
           <h2 className="section-title">
-            Driven by Passion, <span className="gradient-text">Engineered for Excellence</span>
+            Double Major, <span className="gradient-text">AI Researcher & Tech Founder</span>
           </h2>
           <p className="section-subtitle">
-            A glimpse into my background, engineering philosophy, and key impact statistics.
+            Bridging Software Engineering, Physical Science Simulation, and Data Analytics to build impactful digital solutions.
           </p>
         </div>
 
+        {/* Bento Grid Layout */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '2.5rem',
             marginBottom: '4rem',
-            alignItems: 'center'
+            alignItems: 'stretch'
           }}
         >
-          <div className="glass-panel" style={{ padding: '2.5rem' }}>
-            <h3 style={{ fontSize: '1.6rem', marginBottom: '1.2rem' }}>
-              Crafting Digital Solutions That Scale
-            </h3>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              {personalInfo.bio}
-            </p>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Whether I'm engineering high-throughput real-time dashboards or training customized LLM agents, I focus on creating resilient software systems that solve tangible real-world problems.
-            </p>
+          {/* Main Narrative Glass Box */}
+          <div className="glass-panel" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <h3 style={{ fontSize: '1.6rem', marginBottom: '1.2rem' }}>
+                Integrative Engineering & Scientific Innovation
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+                {personalInfo.bio}
+              </p>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
+                From developing computer vision thermal image pipelines at Universiti Sains Malaysia to founding Webtizen.id and winning DevFest 2024 UNIBI, I strive for technical rigor and real-world impact.
+              </p>
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> 5+ Years of Full-Stack Industry Experience
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> S1 Information Systems UNIBI (GPA 3.70 / 4.00)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> Expertise in Modern React, Node.js & Cloud Infra
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> S1 Physical Science UIN Sunan Gunung Djati
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> Agile Team Leadership & Open Source Contributor
+                <CheckCircle2 size={18} style={{ color: 'var(--accent-cyan)' }} /> CEO @ Webtizen.id & Deputy Chair @ IYD West Java
               </div>
             </div>
           </div>
 
+          {/* 3 Pillars Bento Stack */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-            {principles.map((item, idx) => {
+            {bentoPillars.map((item, idx) => {
               const IconComp = item.icon;
               return (
                 <div
@@ -106,9 +118,15 @@ export default function About() {
                   >
                     <IconComp size={24} />
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.15rem', marginBottom: '0.4rem' }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                  <div style={{ flexGrow: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.3rem' }}>
+                      <h4 style={{ fontSize: '1.1rem', fontWeight: 700 }}>{item.title}</h4>
+                      <span className="badge" style={{ fontSize: '0.75rem' }}>{item.badge}</span>
+                    </div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--accent-indigo)', fontWeight: 600, marginBottom: '0.4rem' }}>
+                      {item.subtitle}
+                    </div>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                       {item.desc}
                     </p>
                   </div>
@@ -118,11 +136,13 @@ export default function About() {
           </div>
         </div>
 
+        {/* Real CV Impact Metrics Grid */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            marginBottom: '4rem'
           }}
         >
           {statsData.map((stat, idx) => {
@@ -159,7 +179,7 @@ export default function About() {
                 <div
                   className="gradient-text"
                   style={{
-                    fontSize: '2.5rem',
+                    fontSize: '2.2rem',
                     fontWeight: 800,
                     lineHeight: 1,
                     marginBottom: '0.4rem'
@@ -167,12 +187,65 @@ export default function About() {
                 >
                   {stat.value}
                 </div>
-                <div style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', fontWeight: 500 }}>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 500 }}>
                   {stat.label}
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Key Achievements & Delegations Highlight Grid */}
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <div className="section-tag" style={{ background: 'rgba(245, 158, 11, 0.1)', color: 'var(--accent-amber)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
+              <Trophy size={14} /> Achievements & Delegations
+            </div>
+            <h3 style={{ fontSize: '2rem' }}>Honors & Recognition</h3>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.2rem'
+            }}
+          >
+            {achievementsData.map((item, i) => (
+              <div
+                key={i}
+                className="glass-panel"
+                style={{
+                  padding: '1.4rem 1.6rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem'
+                }}
+              >
+                <div
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'var(--gradient-subtle)',
+                    color: 'var(--accent-amber)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    border: '1px solid rgba(245, 158, 11, 0.2)'
+                  }}
+                >
+                  <Trophy size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem' }}>{item.title}</h4>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{item.organization}</div>
+                  <span className="badge" style={{ marginTop: '0.4rem', fontSize: '0.75rem' }}>{item.badge}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

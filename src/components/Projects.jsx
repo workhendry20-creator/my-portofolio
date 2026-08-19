@@ -9,10 +9,10 @@ export default function Projects() {
 
   const filters = [
     { id: 'all', label: 'All Projects' },
-    { id: 'ai', label: 'AI & ML' },
-    { id: 'web', label: 'Web Apps' },
-    { id: 'fullstack', label: 'Full Stack' },
-    { id: 'tools', label: 'Tools & Systems' }
+    { id: 'web', label: 'Web & Full-Stack' },
+    { id: 'research', label: 'USM AI & Physics Research' },
+    { id: 'startup', label: 'Webtizen.id Startup' },
+    { id: 'ai', label: 'Data Science & ML' }
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -24,13 +24,13 @@ export default function Projects() {
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
-            <FolderGit2 size={14} /> Portfolio Gallery
+            <FolderGit2 size={14} /> Featured Projects Grid
           </div>
           <h2 className="section-title">
-            Featured <span className="gradient-text">Engineering Projects</span>
+            Featured Projects & <span className="gradient-text">Scientific Research</span>
           </h2>
           <p className="section-subtitle">
-            A collection of production web applications, open source systems, and AI tools I've engineered.
+            A showcase of award-winning web platforms, computer vision thermal pipelines, startup applications, and machine learning models.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export default function Projects() {
                     className="btn btn-outline"
                     style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
                   >
-                    <Eye size={15} /> Details
+                    <Eye size={15} /> View Details
                   </button>
 
                   <div style={{ display: 'flex', gap: '0.8rem' }}>

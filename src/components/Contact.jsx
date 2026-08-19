@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, Sparkles, MessageSquare, Instagram, Linkedin, PhoneCall } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
@@ -42,13 +42,13 @@ export default function Contact() {
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
-            <MessageSquare size={14} /> Contact
+            <MessageSquare size={14} /> Contact & Connect
           </div>
           <h2 className="section-title">
-            Let's Build Something <span className="gradient-text">Extraordinary</span>
+            Let's Collaborate & <span className="gradient-text">Build Impact</span>
           </h2>
           <p className="section-subtitle">
-            Have a project in mind, an opportunity to discuss, or just want to connect? Reach out below!
+            Open for full-stack software development roles, computer vision & AI research, tech leadership, or strategic partnerships.
           </p>
         </div>
 
@@ -60,11 +60,13 @@ export default function Contact() {
             alignItems: 'start'
           }}
         >
+          {/* Direct Channels Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div className="glass-panel" style={{ padding: '2rem' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.2rem' }}>Direct Information</h3>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.2rem' }}>Direct Channels</h3>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {/* Email */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
                   <div
                     style={{
@@ -89,28 +91,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-                  <div
-                    style={{
-                      width: '46px',
-                      height: '46px',
-                      borderRadius: 'var(--radius-md)',
-                      background: 'var(--gradient-subtle)',
-                      color: 'var(--accent-indigo)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: '1px solid rgba(99, 102, 241, 0.2)'
-                    }}
-                  >
-                    <MapPin size={22} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Location</div>
-                    <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{personalInfo.location}</div>
-                  </div>
-                </div>
-
+                {/* WhatsApp */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
                   <div
                     style={{
@@ -125,11 +106,63 @@ export default function Contact() {
                       border: '1px solid rgba(16, 185, 129, 0.2)'
                     }}
                   >
-                    <Clock size={22} />
+                    <PhoneCall size={22} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Response Time</div>
-                    <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Within 24 Hours</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>WhatsApp</div>
+                    <a href={personalInfo.whatsapp} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                      +62 878-8292-7779
+                    </a>
+                  </div>
+                </div>
+
+                {/* LinkedIn */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+                  <div
+                    style={{
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: 'var(--radius-md)',
+                      background: 'var(--gradient-subtle)',
+                      color: 'var(--accent-indigo)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(99, 102, 241, 0.2)'
+                    }}
+                  >
+                    <Linkedin size={22} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>LinkedIn</div>
+                    <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                      linkedin.com/in/hendrybambang/
+                    </a>
+                  </div>
+                </div>
+
+                {/* Instagram */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+                  <div
+                    style={{
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: 'var(--radius-md)',
+                      background: 'var(--gradient-subtle)',
+                      color: 'var(--accent-pink)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(236, 72, 153, 0.2)'
+                    }}
+                  >
+                    <Instagram size={22} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Instagram</div>
+                    <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                      @hendry.b_
+                    </a>
                   </div>
                 </div>
               </div>
@@ -147,11 +180,12 @@ export default function Contact() {
                 <Sparkles size={18} /> Open for Collaboration
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                Interested in freelance engineering, full-time positions, or technical consulting? Feel free to drop a message!
+                Interested in full-stack software development, AI research collaboration, MSME digital transformation, or youth diplomacy initiatives?
               </p>
             </div>
           </div>
 
+          {/* Interactive Form */}
           <div className="glass-panel" style={{ padding: '2.5rem' }}>
             {status.submitted ? (
               <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
@@ -172,7 +206,7 @@ export default function Contact() {
                 </div>
                 <h3 style={{ fontSize: '1.6rem', marginBottom: '0.6rem' }}>Message Sent Successfully!</h3>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-                  Thank you for reaching out. I'll get back to you as soon as possible.
+                  Thank you for reaching out, Hendry will respond promptly.
                 </p>
                 <button
                   onClick={() => setStatus({ submitting: false, submitted: false, error: null })}
@@ -260,7 +294,7 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Project Inquiry / Hiring"
+                    placeholder="Tech Collaboration / Research Inquiry"
                     style={{
                       width: '100%',
                       padding: '0.8rem 1rem',
@@ -283,7 +317,7 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me about your project goals or team needs..."
+                    placeholder="Share project details or collaboration goals..."
                     style={{
                       width: '100%',
                       padding: '0.8rem 1rem',

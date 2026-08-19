@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowRight, Github, Linkedin, Twitter, Mail, Sparkles, Terminal, Code } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import { ArrowDown, ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, Terminal, Code, Award, ExternalLink } from 'lucide-react';
+import { personalInfo, floatingBadges } from '../data/portfolioData';
 
 export default function Hero() {
   const roles = [
-    'Full-Stack Software Engineer',
-    'Creative AI Developer',
-    'Cloud Systems Architect',
-    'UI/UX Craftsman'
+    'Full-Stack & Computer Vision Developer',
+    'Double Major (Info Systems & Physical Science)',
+    'CEO @ Webtizen.id',
+    'USM Research Intern'
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -60,6 +60,7 @@ export default function Hero() {
           }}
         >
           <div style={{ maxWidth: '650px' }}>
+            {/* Status Badge */}
             <div
               style={{
                 display: 'inline-flex',
@@ -88,6 +89,7 @@ export default function Hero() {
               {personalInfo.availability}
             </div>
 
+            {/* Main Title */}
             <h1
               style={{
                 fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
@@ -100,9 +102,10 @@ export default function Hero() {
               Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
             </h1>
 
+            {/* Animated Typewriter Subtitle */}
             <div
               style={{
-                fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+                fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
                 fontWeight: 600,
                 color: 'var(--text-secondary)',
                 marginBottom: '1.5rem',
@@ -112,7 +115,7 @@ export default function Hero() {
                 minHeight: '2.5rem'
               }}
             >
-              <Sparkles size={24} style={{ color: 'var(--accent-cyan)' }} />
+              <Sparkles size={22} style={{ color: 'var(--accent-cyan)' }} />
               <span>{displayText}</span>
               <span
                 style={{
@@ -126,26 +129,58 @@ export default function Hero() {
               />
             </div>
 
+            {/* Bio Tagline */}
             <p
               style={{
                 fontSize: '1.1rem',
                 color: 'var(--text-secondary)',
                 lineHeight: 1.7,
-                marginBottom: '2.5rem'
+                marginBottom: '2rem'
               }}
             >
               {personalInfo.tagline}
             </p>
 
+            {/* Floating Glass Badges Cloud */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '0.6rem',
+                marginBottom: '2.5rem'
+              }}
+            >
+              {floatingBadges.map((badgeText, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    padding: '0.4rem 0.9rem',
+                    borderRadius: 'var(--radius-full)',
+                    background: 'var(--bg-glass)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid var(--border-light)',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    boxShadow: 'var(--shadow-sm)'
+                  }}
+                >
+                  ⚡ {badgeText}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
               <a href="#projects" className="btn btn-primary">
-                View My Projects <ArrowRight size={18} />
+                Explore Projects & Research <ArrowRight size={18} />
               </a>
               <a href="#contact" className="btn btn-secondary">
                 Get in Touch
               </a>
             </div>
 
+            {/* Social Connect Icons */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
               <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>Connect:</span>
               <a
@@ -189,6 +224,26 @@ export default function Hero() {
                 <Linkedin size={20} />
               </a>
               <a
+                href={personalInfo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'var(--bg-tertiary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-light)',
+                  transition: 'all var(--transition-fast)'
+                }}
+              >
+                <Instagram size={20} />
+              </a>
+              <a
                 href={`mailto:${personalInfo.email}`}
                 aria-label="Email"
                 style={{
@@ -209,12 +264,13 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Right Terminal Card Mockup */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div
               className="glass-panel animate-float"
               style={{
                 width: '100%',
-                maxWidth: '460px',
+                maxWidth: '480px',
                 padding: '1.8rem',
                 position: 'relative',
                 overflow: 'hidden'
@@ -245,30 +301,27 @@ export default function Hero() {
                     gap: '0.4rem'
                   }}
                 >
-                  <Terminal size={14} /> developer.config.js
+                  <Terminal size={14} /> hendry_bambang.config.js
                 </div>
               </div>
 
               <pre
                 style={{
                   fontFamily: 'var(--font-code)',
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   lineHeight: 1.8,
                   color: 'var(--text-secondary)',
                   overflowX: 'auto'
                 }}
               >
                 <code>
-                  <span style={{ color: 'var(--accent-purple)' }}>const</span> <span style={{ color: 'var(--accent-cyan)' }}>developer</span> = &#123;<br />
-                  &nbsp;&nbsp;name: <span style={{ color: 'var(--accent-emerald)' }}>"{personalInfo.name}"</span>,<br />
-                  &nbsp;&nbsp;coreStack: [<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'var(--accent-amber)' }}>"React / Next.js"</span>,<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'var(--accent-amber)' }}>"Node.js & Python"</span>,<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'var(--accent-amber)' }}>"AI & LLM Integration"</span>,<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'var(--accent-amber)' }}>"Cloud Architecture"</span><br />
-                  &nbsp;&nbsp;],<br />
-                  &nbsp;&nbsp;passion: <span style={{ color: 'var(--accent-emerald)' }}>"Building scalable web products"</span>,<br />
-                  &nbsp;&nbsp;status: <span style={{ color: 'var(--accent-cyan)' }}>"Ready for code review 🚀"</span><br />
+                  <span style={{ color: 'var(--accent-purple)' }}>const</span> <span style={{ color: 'var(--accent-cyan)' }}>scholar</span> = &#123;<br />
+                  &nbsp;&nbsp;name: <span style={{ color: 'var(--accent-emerald)' }}>"Hendry Bambang S."</span>,<br />
+                  &nbsp;&nbsp;education: <span style={{ color: 'var(--accent-amber)' }}>"Double Major (UNIBI & UIN SGD)"</span>,<br />
+                  &nbsp;&nbsp;gpa: <span style={{ color: 'var(--accent-amber)' }}>"3.70 / 4.00 (S1 Info Systems)"</span>,<br />
+                  &nbsp;&nbsp;research: <span style={{ color: 'var(--accent-amber)' }}>"USM Computer Vision & Physics Canvas"</span>,<br />
+                  &nbsp;&nbsp;startup: <span style={{ color: 'var(--accent-amber)' }}>"CEO @ Webtizen.id"</span>,<br />
+                  &nbsp;&nbsp;status: <span style={{ color: 'var(--accent-cyan)' }}>"Ready for Impact 🚀"</span><br />
                   &#125;;
                 </code>
               </pre>
@@ -286,10 +339,10 @@ export default function Hero() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <Code size={18} style={{ color: 'var(--accent-cyan)' }} />
-                  <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>100% Clean Architecture</span>
+                  <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
+                  <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>DevFest 2024 Award Winner</span>
                 </div>
-                <span className="badge">Verified</span>
+                <span className="badge">Best Web App</span>
               </div>
             </div>
           </div>
