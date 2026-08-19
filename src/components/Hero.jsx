@@ -320,7 +320,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="./assests/photo.jpg"
+                src="./assests/hendry.png"
                 alt={personalInfo.name}
                 style={{
                   width: 'auto',
@@ -328,12 +328,12 @@ export default function Hero() {
                   maxWidth: '100%',
                   objectFit: 'contain',
                   objectPosition: 'bottom',
-                  filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.35))',
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4))',
                   display: 'block'
                 }}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = './assets/photo.jpg';
+                  e.target.src = './assets/hendry.png';
                 }}
               />
             </div>
