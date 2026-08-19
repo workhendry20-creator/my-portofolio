@@ -160,7 +160,20 @@ export default function Languages() {
               </button>
             </div>
 
-            <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-light)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              <span>📜 Scroll inside image box to view full 4-page certificate</span>
+              <span>EF SET Verified</span>
+            </div>
+
+            <div
+              style={{
+                maxHeight: '72vh',
+                overflowY: 'auto',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-light)',
+                background: 'var(--bg-tertiary)'
+              }}
+            >
               <img
                 src={activeModalImage}
                 alt="EF SET English Certificate"
