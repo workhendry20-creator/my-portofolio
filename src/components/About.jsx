@@ -77,7 +77,7 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="./assests/photo.jpg"
+                    src="./assests/final.jpg"
                     alt={personalInfo.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => {
