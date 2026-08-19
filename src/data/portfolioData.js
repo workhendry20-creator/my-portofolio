@@ -11,6 +11,7 @@ export const personalInfo = {
   instagram: "https://instagram.com/hendry.b_",
   whatsapp: "https://wa.me/6287882927779",
   github: "https://github.com/workhendry20-creator",
+  avatar: "./assests/photo.jpg",
   availability: "Open for Job and Collaboration",
   resumeUrl: "#"
 };

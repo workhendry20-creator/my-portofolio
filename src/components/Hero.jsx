@@ -1,178 +1,232 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, Terminal, Code, Award, ExternalLink } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Hero() {
-  const roles = [
-    'Full-Stack & Computer Vision Developer',
-    'Double Major (Info Systems & Physical Science)',
-    'CEO @ Webtizen.id',
-    'USM Research Intern'
-  ];
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+  // Interactive 3D Cursor Tilt & Parallax effect
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    setMousePos({ x, y });
+  };
 
-  useEffect(() => {
-    const currentFullRole = roles[currentRoleIndex];
-    let timer;
-
-    if (!isDeleting && displayText === currentFullRole) {
-      timer = setTimeout(() => setIsDeleting(true), 2200);
-    } else if (isDeleting && displayText === '') {
-      setIsDeleting(false);
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    } else {
-      const speed = isDeleting ? 40 : 80;
-      timer = setTimeout(() => {
-        setDisplayText(
-          isDeleting
-            ? currentFullRole.substring(0, displayText.length - 1)
-            : currentFullRole.substring(0, displayText.length + 1)
-        );
-      }, speed);
-    }
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentRoleIndex]);
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
 
   return (
     <section
       id="home"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{
-        minHeight: '100vh',
+        minHeight: '90vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: '6rem',
-        paddingBottom: '4rem',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden',
+        paddingTop: '5rem',
+        paddingBottom: '2rem'
       }}
     >
-      <div className="container">
+      {/* Background Faint Geometric Grid Overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
+
+      {/* Subtle Ambient Dots Overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '20%',
+          right: '15%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)',
+          filter: 'blur(50px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
+
+      <div
+        className="container"
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 1.5rem'
+        }}
+      >
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
-            alignItems: 'center'
+            gap: '2.5rem',
+            alignItems: 'end',
+            minHeight: '85vh'
           }}
         >
-          <div style={{ maxWidth: '650px' }}>
-            {/* Status Badge */}
+          {/* Left Column (Text & CTAs) */}
+          <div style={{ paddingBottom: '3rem', maxWidth: '620px' }}>
+            {/* Availability Badge */}
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.6rem',
-                padding: '0.4rem 1rem',
-                borderRadius: 'var(--radius-full)',
+                gap: '0.5rem',
+                padding: '0.38rem 0.88rem',
+                borderRadius: '9999px',
                 background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                color: 'var(--accent-emerald)',
-                fontSize: '0.85rem',
+                color: '#10b981',
+                fontSize: '0.78rem',
                 fontWeight: 600,
+                letterSpacing: '0.025em',
+                border: '1px solid rgba(16, 185, 129, 0.25)',
                 marginBottom: '1.5rem'
               }}
             >
               <span
                 style={{
-                  width: '8px',
-                  height: '8px',
+                  width: '7px',
+                  height: '7px',
                   borderRadius: '50%',
-                  background: 'var(--accent-emerald)',
-                  boxShadow: '0 0 10px var(--accent-emerald)',
-                  animation: 'pulseGlow 2s infinite'
+                  background: '#10b981',
+                  boxShadow: '0 0 8px #10b981'
                 }}
               />
-              {personalInfo.availability}
+              Open for Job and Collaboration
             </div>
 
-            {/* Main Title */}
+            {/* Name Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
-                fontWeight: 800,
-                lineHeight: 1.15,
+                fontSize: 'clamp(2.5rem, 5.5vw, 4rem)',
+                fontWeight: 900,
+                lineHeight: 1.12,
                 letterSpacing: '-0.03em',
-                marginBottom: '1rem'
+                marginBottom: '1.2rem',
+                color: 'var(--text-primary)'
               }}
             >
-              Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
-            </h1>
-
-            {/* Animated Typewriter Subtitle */}
-            <div
-              style={{
-                fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
-                fontWeight: 600,
-                color: 'var(--text-secondary)',
-                marginBottom: '1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                minHeight: '2.5rem'
-              }}
-            >
-              <Sparkles size={22} style={{ color: 'var(--accent-cyan)' }} />
-              <span>{displayText}</span>
               <span
                 style={{
-                  display: 'inline-block',
-                  width: '2px',
-                  height: '1.4em',
-                  background: 'var(--accent-cyan)',
-                  marginLeft: '2px',
-                  animation: 'pulseGlow 1s infinite'
+                  background: 'linear-gradient(to right, #06b6d4, #2563eb, #9333ea)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  display: 'inline-block'
                 }}
-              />
-            </div>
+              >
+                {personalInfo.name}
+              </span>
+            </h1>
 
-            {/* Bio Tagline */}
-            <p
+            {/* Sub-headline / Role */}
+            <div
               style={{
-                fontSize: '1.1rem',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.7,
-                marginBottom: '2rem'
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
               }}
             >
-              {personalInfo.tagline}
+              <Sparkles size={20} style={{ color: '#06b6d4' }} />
+              Full-Stack & Computer Vision Developer
+            </div>
+
+            {/* Description */}
+            <p
+              style={{
+                fontSize: '1.05rem',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.7,
+                marginBottom: '2.2rem',
+                maxWidth: '520px'
+              }}
+            >
+              Bridging Software Engineering, Physical Science Simulation, and Data Analytics to build impactful digital solutions and research.
             </p>
 
             {/* CTA Buttons */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
-              <a href="#projects" className="btn btn-primary">
+              <a
+                href="#projects"
+                style={{
+                  background: 'linear-gradient(to right, #06b6d4, #9333ea)',
+                  color: '#ffffff',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  padding: '0.85rem 1.6rem',
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 14px rgba(6, 182, 212, 0.35)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  transition: 'all 0.2s ease-in-out'
+                }}
+              >
                 Explore Projects & Research <ArrowRight size={18} />
               </a>
-              <a href="#contact" className="btn btn-secondary">
+              <a
+                href="#contact"
+                style={{
+                  background: 'var(--bg-tertiary)',
+                  color: 'var(--text-primary)',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  padding: '0.85rem 1.6rem',
+                  borderRadius: '12px',
+                  border: '1px solid var(--border-light)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.6rem',
+                  transition: 'all 0.2s ease-in-out'
+                }}
+              >
                 Get in Touch
               </a>
             </div>
 
-            {/* Social Connect Icons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-              <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>Connect:</span>
+            {/* Social Connect Bar */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 600 }}>Connect:</span>
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
                 style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-tertiary)',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: 'var(--text-primary)',
                   border: '1px solid var(--border-light)',
-                  transition: 'all var(--transition-fast)'
+                  transition: 'transform 0.2s ease'
                 }}
               >
-                <Github size={20} />
+                <Github size={19} />
               </a>
               <a
                 href={personalInfo.linkedin}
@@ -180,19 +234,20 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-tertiary)',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: 'var(--text-primary)',
                   border: '1px solid var(--border-light)',
-                  transition: 'all var(--transition-fast)'
+                  transition: 'transform 0.2s ease'
                 }}
               >
-                <Linkedin size={20} />
+                <Linkedin size={19} />
               </a>
               <a
                 href={personalInfo.instagram}
@@ -200,142 +255,89 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-tertiary)',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: 'var(--text-primary)',
                   border: '1px solid var(--border-light)',
-                  transition: 'all var(--transition-fast)'
+                  transition: 'transform 0.2s ease'
                 }}
               >
-                <Instagram size={20} />
+                <Instagram size={19} />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
                 aria-label="Email"
                 style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-tertiary)',
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'var(--text-secondary)',
+                  color: 'var(--text-primary)',
                   border: '1px solid var(--border-light)',
-                  transition: 'all var(--transition-fast)'
+                  transition: 'transform 0.2s ease'
                 }}
               >
-                <Mail size={20} />
+                <Mail size={19} />
               </a>
             </div>
           </div>
 
-          {/* Right Terminal Card Mockup */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          {/* Right Column: Full-Space Cutout Photo - NO FRAME & NO OUTLINE with 3D Cursor Movement */}
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'flex-end',
+              position: 'relative'
+            }}
+          >
             <div
-              className="glass-panel animate-float"
               style={{
                 width: '100%',
-                maxWidth: '480px',
-                padding: '1.8rem',
-                position: 'relative',
-                overflow: 'hidden'
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+                transform: `
+                  perspective(1000px)
+                  translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 0)
+                  rotateY(${mousePos.x * 10}deg)
+                  rotateX(${-mousePos.y * 10}deg)
+                `,
+                transition: 'transform 0.15s cubic-bezier(0.2, 0, 0.2, 1)',
+                willChange: 'transform'
               }}
             >
-              <div
+              <img
+                src="./assests/photo.jpg"
+                alt={personalInfo.name}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingBottom: '1rem',
-                  marginBottom: '1.2rem',
-                  borderBottom: '1px solid var(--border-light)'
+                  width: 'auto',
+                  maxHeight: '82vh',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                  objectPosition: 'bottom',
+                  filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.35))',
+                  display: 'block'
                 }}
-              >
-                <div style={{ display: 'flex', gap: '0.4rem' }}>
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }} />
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#eab308' }} />
-                  <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22c55e' }} />
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted)',
-                    fontFamily: 'var(--font-code)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem'
-                  }}
-                >
-                  <Terminal size={14} /> hendry_bambang.config.js
-                </div>
-              </div>
-
-              <pre
-                style={{
-                  fontFamily: 'var(--font-code)',
-                  fontSize: '0.85rem',
-                  lineHeight: 1.8,
-                  color: 'var(--text-secondary)',
-                  overflowX: 'auto'
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = './assets/photo.jpg';
                 }}
-              >
-                <code>
-                  <span style={{ color: 'var(--accent-purple)' }}>const</span> <span style={{ color: 'var(--accent-cyan)' }}>scholar</span> = &#123;<br />
-                  &nbsp;&nbsp;name: <span style={{ color: 'var(--accent-emerald)' }}>"Hendry Bambang S."</span>,<br />
-                  &nbsp;&nbsp;education: <span style={{ color: 'var(--accent-amber)' }}>"Double Major (UNIBI & UIN SGD)"</span>,<br />
-                  &nbsp;&nbsp;gpa: <span style={{ color: 'var(--accent-amber)' }}>"3.70 / 4.00 (S1 Info Systems)"</span>,<br />
-                  &nbsp;&nbsp;research: <span style={{ color: 'var(--accent-amber)' }}>"USM Computer Vision & Physics Canvas"</span>,<br />
-                  &nbsp;&nbsp;startup: <span style={{ color: 'var(--accent-amber)' }}>"CEO @ Webtizen.id"</span>,<br />
-                  &nbsp;&nbsp;status: <span style={{ color: 'var(--accent-cyan)' }}>"Ready for Impact 🚀"</span><br />
-                  &#125;;
-                </code>
-              </pre>
-
-              <div
-                style={{
-                  marginTop: '1.5rem',
-                  padding: '0.8rem 1rem',
-                  borderRadius: 'var(--radius-md)',
-                  background: 'var(--gradient-subtle)',
-                  border: '1px solid rgba(6, 182, 212, 0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
-                  <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>DevFest 2024 Award Winner</span>
-                </div>
-                <span className="badge">Best Web App</span>
-              </div>
+              />
             </div>
           </div>
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '1.5rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '0.4rem',
-            color: 'var(--text-muted)',
-            fontSize: '0.8rem',
-            opacity: 0.7
-          }}
-        >
-          <span>Scroll Down</span>
-          <ArrowDown size={16} className="animate-float" />
         </div>
       </div>
     </section>
