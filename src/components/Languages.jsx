@@ -1,40 +1,39 @@
-import React from 'react';
-import { Languages as LanguagesIcon, CheckCircle2, Award, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { Languages as LanguagesIcon, Award, ExternalLink, Eye, X, CheckCircle2 } from 'lucide-react';
 import { languagesData } from '../data/portfolioData';
 
 export default function Languages() {
+  const [activeModalImage, setActiveModalImage] = useState(null);
+
   return (
-    <section id="languages" className="section" style={{ padding: '4rem 0' }}>
+    <section id="languages" className="section" style={{ padding: '2.5rem 0' }}>
       <div className="container">
-        {/* Section Header */}
-        <div className="section-header">
-          <div className="section-tag">
-            <LanguagesIcon size={14} /> Global Communication
+        {/* Compact Section Header */}
+        <div className="section-header" style={{ marginBottom: '1.8rem' }}>
+          <div className="section-tag" style={{ fontSize: '0.8rem', padding: '0.25rem 0.8rem' }}>
+            <LanguagesIcon size={13} /> Languages
           </div>
-          <h2 className="section-title">
+          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, margin: '0.4rem 0' }}>
             Language <span className="gradient-text">Proficiency</span>
-          </h2>
-          <p className="section-subtitle">
-            Multilingual fluency enabling seamless cross-border research, technical documentation, and international diplomacy.
-          </p>
+          </h3>
         </div>
 
-        {/* Languages Grid */}
+        {/* Compact Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '1.2rem',
             maxWidth: '900px',
             margin: '0 auto'
           }}
         >
-          {languagesData.map((lang, idx) => (
+          {languagesData.map((lang) => (
             <div
-              key={idx}
+              key={lang.id}
               className="glass-panel"
               style={{
-                padding: '2rem',
+                padding: '1.2rem 1.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -42,70 +41,60 @@ export default function Languages() {
               }}
             >
               <div>
-                {/* Flag & Name Header */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                    <span style={{ fontSize: '2rem', lineHeight: 1 }}>{lang.flag}</span>
+                {/* Compact Header: Flag, Name & Badge */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>{lang.flag}</span>
                     <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>{lang.name}</h3>
-                      <div style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
+                      <h4 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0 }}>{lang.name}</h4>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>
                         {lang.proficiency}
                       </div>
                     </div>
                   </div>
-                  <span className="badge" style={{ fontSize: '0.78rem' }}>
+                  <span className="badge" style={{ fontSize: '0.75rem', padding: '0.2rem 0.6rem' }}>
                     {lang.badge}
                   </span>
                 </div>
 
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '0.8rem' }}>
                   {lang.description}
                 </p>
               </div>
 
               <div>
-                {/* Level Progress Bar */}
-                <div style={{ marginBottom: '1rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.4rem', fontWeight: 600 }}>
-                    <span>Fluency Score</span>
-                    <span>{lang.level}%</span>
-                  </div>
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '8px',
-                      borderRadius: 'var(--radius-full)',
-                      background: 'var(--bg-tertiary)',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: `${lang.level}%`,
-                        height: '100%',
-                        borderRadius: 'var(--radius-full)',
-                        background: 'var(--gradient-primary)',
-                        boxShadow: '0 0 10px rgba(6, 182, 212, 0.4)'
-                      }}
-                    />
-                  </div>
-                </div>
+                {/* Certificate Preview Thumbnail & Link if available */}
+                {lang.image ? (
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.8rem', paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
+                      <Award size={14} /> EF SET Certified (07 Apr 2026)
+                    </div>
 
-                {/* Certification tag if available */}
-                {lang.certification && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      fontSize: '0.82rem',
-                      color: 'var(--accent-emerald)',
-                      fontWeight: 600,
-                      paddingTop: '0.8rem',
-                      borderTop: '1px solid var(--border-light)'
-                    }}
-                  >
-                    <Award size={15} /> {lang.certification}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <button
+                        onClick={() => setActiveModalImage(lang.image)}
+                        className="btn btn-outline"
+                        style={{ padding: '0.25rem 0.6rem', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+                      >
+                        <Eye size={12} /> Certificate Image
+                      </button>
+
+                      {lang.certUrl && (
+                        <a
+                          href={lang.certUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Verify EF SET Certificate"
+                          style={{ color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center' }}
+                        >
+                          <ExternalLink size={15} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--accent-emerald)', fontWeight: 600, paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
+                    <CheckCircle2 size={14} /> Native Speaker Verified
                   </div>
                 )}
               </div>
@@ -113,6 +102,74 @@ export default function Languages() {
           ))}
         </div>
       </div>
+
+      {/* Certificate Image Zoom Modal */}
+      {activeModalImage && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1000,
+            background: 'rgba(0, 0, 0, 0.85)',
+            backdropFilter: 'blur(12px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem'
+          }}
+          onClick={() => setActiveModalImage(null)}
+        >
+          <div
+            className="glass-panel"
+            style={{
+              maxWidth: '800px',
+              width: '100%',
+              padding: '1.5rem',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+              maxHeight: '90vh',
+              overflowY: 'auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0 }}>Official EF SET English Certificate</h4>
+                <div style={{ fontSize: '0.82rem', color: 'var(--accent-cyan)' }}>EF SET C2 Proficient (Score: 75/100) — Awarded 07 Apr 2026</div>
+              </div>
+              <button
+                onClick={() => setActiveModalImage(null)}
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: 'var(--radius-full)',
+                  background: 'var(--bg-tertiary)',
+                  color: 'var(--text-primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid var(--border-light)'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-light)' }}>
+              <img
+                src={activeModalImage}
+                alt="EF SET English Certificate"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

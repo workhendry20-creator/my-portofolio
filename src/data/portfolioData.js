@@ -351,21 +351,27 @@ export const certificationsData = [
 
 export const languagesData = [
   {
+    id: "id-lang",
     name: "Indonesian (Bahasa Indonesia)",
-    proficiency: "Native / Native Speaker",
+    proficiency: "Native / Mother Tongue",
     level: 100,
     flag: "🇮🇩",
     badge: "Native Speaker",
-    description: "Native fluency in written, spoken, and professional business & technical communications."
+    description: "Native fluency in written, spoken, and professional communications."
   },
   {
+    id: "en-lang",
     name: "English",
-    proficiency: "Professional Working & Academic Proficiency",
-    level: 90,
+    proficiency: "C2 Proficient (EF SET 75/100)",
+    level: 95,
     flag: "🇬🇧",
-    badge: "Certified / Advanced",
-    description: "Certified fluency for international research (USM Malaysia), Y20 & ASEAN Youth Summit diplomacy, and global tech collaboration.",
-    certification: "EF SET / TOEFL Certified Proficiency"
+    badge: "EF SET C2 Proficient 🏆",
+    score: "75/100 (C2 Mastery)",
+    date: "April 7, 2026",
+    image: "./assests/language.png",
+    certUrl: "https://cert.efset.org/en/fP56ow",
+    description: "Official EF SET English Certificate - C2 Proficient (Mastery Level) for international research, Y20 diplomacy, and global engineering.",
+    certification: "EF SET Certified (07 Apr 2026)"
   }
 ];
 
