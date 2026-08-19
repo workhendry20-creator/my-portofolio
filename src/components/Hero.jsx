@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, ArrowRight, Github, Linkedin, Instagram, Mail, Sparkles, Terminal, Code, Award, ExternalLink } from 'lucide-react';
-import { personalInfo, floatingBadges } from '../data/portfolioData';
+import { personalInfo } from '../data/portfolioData';
 
 export default function Hero() {
   const roles = [
@@ -140,35 +140,6 @@ export default function Hero() {
             >
               {personalInfo.tagline}
             </p>
-
-            {/* Floating Glass Badges Cloud */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.6rem',
-                marginBottom: '2.5rem'
-              }}
-            >
-              {floatingBadges.map((badgeText, idx) => (
-                <span
-                  key={idx}
-                  style={{
-                    padding: '0.4rem 0.9rem',
-                    borderRadius: 'var(--radius-full)',
-                    background: 'var(--bg-glass)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid var(--border-light)',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    color: 'var(--text-primary)',
-                    boxShadow: 'var(--shadow-sm)'
-                  }}
-                >
-                  {badgeText}
-                </span>
-              ))}
-            </div>
 
             {/* CTA Buttons */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
