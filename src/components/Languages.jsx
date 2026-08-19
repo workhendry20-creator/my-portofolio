@@ -67,7 +67,7 @@ export default function Languages() {
                 {lang.image ? (
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.8rem', paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
-                      <Award size={14} /> EF SET Certified (07 Apr 2026)
+                      <Award size={14} /> EF SET Certified (Apr 2026)
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

@@ -356,7 +356,7 @@ export const languagesData = [
     proficiency: "Native / Mother Tongue",
     level: 100,
     flag: "🇮🇩",
-    badge: "Native Speaker",
+    badge: "Native",
     description: "Native fluency in written, spoken, and professional communications."
   },
   {
@@ -365,13 +365,13 @@ export const languagesData = [
     proficiency: "C2 Proficient (EF SET 75/100)",
     level: 95,
     flag: "🇬🇧",
-    badge: "EF SET C2 Proficient 🏆",
+    badge: "C2 Proficient 🏆",
     score: "75/100 (C2 Mastery)",
     date: "April 7, 2026",
     image: "./assests/language.png",
     certUrl: "https://cert.efset.org/en/fP56ow",
     description: "Official EF SET English Certificate - C2 Proficient (Mastery Level) for international research, Y20 diplomacy, and global engineering.",
-    certification: "EF SET Certified (07 Apr 2026)"
+    certification: "EF SET Certified (Apr 2026)"
   }
 ];
 
