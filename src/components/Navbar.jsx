@@ -79,7 +79,7 @@ export default function Navbar({ theme, toggleTheme }) {
             />
           </div>
           <span>
-            {personalInfo.name.split(' ')[0]}<span className="gradient-text">.{personalInfo.name.split(' ')[1] || 'dev'}</span>
+            Hendry Porto's
           </span>
         </a>
 
