@@ -335,7 +335,7 @@ export default function Hero() {
                   objectFit: 'contain',
                   objectPosition: 'bottom center',
                   marginBottom: '-4px',
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45))',
+                  filter: 'drop-shadow(0 10px 30px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.18))',
                   display: 'block'
                 }}
                 onError={(e) => {
