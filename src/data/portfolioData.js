@@ -11,7 +11,7 @@ export const personalInfo = {
   instagram: "https://instagram.com/hendry.b_",
   whatsapp: "https://wa.me/6287882927779",
   github: "https://github.com/workhendry20-creator",
-  availability: "Open for Full-Stack Roles, AI Research & Tech Leadership",
+  availability: "Open for Job and Collaboration",
   resumeUrl: "#"
 };
 
@@ -242,3 +242,73 @@ export const testimonialsData = [
     role: "IYD West Java"
   }
 ];
+
+export const certificationsData = [
+  {
+    id: "gdev-360",
+    title: "Certified Campaign Manager 360",
+    issuer: "Google Developer / Marketing",
+    year: "2024",
+    badge: "Google Certified 📜",
+    category: "Google",
+    credentialId: "GDEV-360-98421",
+    description: "Certification in digital campaign management, 360-degree brand strategy, data-driven ad analytics, and user engagement tracking.",
+    skills: ["Campaign Management", "Digital Strategy", "Analytics 360", "Brand Growth"]
+  },
+  {
+    id: "ibm-sql",
+    title: "SQL & Relational Database Certification (100% Score)",
+    issuer: "Cognitive Class (IBM)",
+    year: "2024",
+    badge: "Perfect Score 🎯",
+    category: "Data & DB",
+    credentialId: "IBM-CC-SQL-100",
+    description: "Achieved 100% perfect score in Relational Database design, SQL query optimization, indexing, schema modeling, and data manipulation.",
+    skills: ["SQL", "Relational Database", "Schema Design", "Query Optimization"]
+  },
+  {
+    id: "ibm-python-ds",
+    title: "Python for Data Science & Machine Learning (98% Score)",
+    issuer: "Cognitive Class (IBM)",
+    year: "2024",
+    badge: "High Distinction 📊",
+    category: "Data Science",
+    credentialId: "IBM-CC-PY-98",
+    description: "Achieved 98% score in Python programming for Data Science, Pandas dataframes, NumPy array computing, and predictive ML modeling.",
+    skills: ["Python", "Data Science", "Pandas", "Scikit-Learn"]
+  },
+  {
+    id: "aws-ml",
+    title: "AWS Machine Learning & Cloud Foundations",
+    issuer: "Amazon Web Services / Kaggle",
+    year: "2024",
+    badge: "AWS Verified ☁️",
+    category: "Cloud & ML",
+    credentialId: "AWS-KAG-ML-772",
+    description: "Foundational mastery in AWS cloud machine learning tools, model training, evaluation metrics, and serverless AI deployment pipelines.",
+    skills: ["AWS", "Machine Learning", "Model Training", "Cloud Pipeline"]
+  },
+  {
+    id: "usm-cv-cert",
+    title: "Computer Vision & Thermal Image Analysis Specialist",
+    issuer: "Universiti Sains Malaysia (USM)",
+    year: "2026",
+    badge: "USM International 🔬",
+    category: "Research & Vision",
+    credentialId: "USM-CV-2026-08",
+    description: "Specialized international research certification for Python OpenCV PV thermal image feature extraction and custom Web Physics Engines.",
+    skills: ["OpenCV", "Thermal Imaging", "Python", "Physics Modeling"]
+  },
+  {
+    id: "devfest-cert",
+    title: "Best Web Application Award - DevFest 2024",
+    issuer: "UNIBI & DevFest Community",
+    year: "2024",
+    badge: "DevFest Award 🏆",
+    category: "Development",
+    credentialId: "DEVFEST-2024-WINNER",
+    description: "Official award certification recognizing the development of Momoped pet shop e-commerce platform with exceptional full-stack UI/UX.",
+    skills: ["React", "Full-Stack", "Web Architecture", "UI/UX"]
+  }
+];
+
