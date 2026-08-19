@@ -13,10 +13,10 @@ export default function About() {
   const bentoPillars = [
     {
       title: "1. Academic Excellence (Double Degree)",
-      subtitle: "S1 Info Systems (UNIBI - GPA 3.70) & S1 Physical Science (UIN SGD)",
+      subtitle: "S1 Information Systems & S1 Physics",
       desc: "Combining system architecture, relational database modeling, and physical science analytics for deep problem-solving.",
       icon: Award,
-      badge: "Double Major Scholar"
+      badge: "Double Major"
     },
     {
       title: "2. Tech & Research (Computer Vision & Web Physics Engine)",

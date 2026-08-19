@@ -1,11 +1,17 @@
-import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2, MessageSquareQuote, Quote } from 'lucide-react';
+import React, { useState } from 'react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, MessageSquareQuote, Quote, ChevronDown, ChevronUp } from 'lucide-react';
 import { experienceData, testimonialsData } from '../data/portfolioData';
 
 export default function Experience() {
+  const [showAll, setShowAll] = useState(false);
+
+  // Show top 2 items initially, expand to all when showAll is true
+  const visibleExperiences = showAll ? experienceData : experienceData.slice(0, 2);
+
   return (
     <section id="experience" className="section">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
           <div className="section-tag">
             <Briefcase size={14} /> Career Journey
@@ -18,7 +24,9 @@ export default function Experience() {
           </p>
         </div>
 
-        <div style={{ maxWidth: '850px', margin: '0 auto 5rem auto', position: 'relative' }}>
+        {/* Timeline Container */}
+        <div style={{ maxWidth: '850px', margin: '0 auto 4rem auto', position: 'relative' }}>
+          {/* Vertical Line */}
           <div
             style={{
               position: 'absolute',
@@ -32,7 +40,7 @@ export default function Experience() {
           />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            {experienceData.map((item, idx) => (
+            {visibleExperiences.map((item, idx) => (
               <div
                 key={idx}
                 style={{
@@ -41,6 +49,7 @@ export default function Experience() {
                   position: 'relative'
                 }}
               >
+                {/* Timeline Glow Icon Node */}
                 <div
                   style={{
                     width: '48px',
@@ -60,6 +69,7 @@ export default function Experience() {
                   <Briefcase size={20} />
                 </div>
 
+                {/* Content Card */}
                 <div className="glass-panel" style={{ padding: '2rem', flexGrow: 1 }}>
                   <div
                     style={{
@@ -92,6 +102,7 @@ export default function Experience() {
                     {item.description}
                   </p>
 
+                  {/* Bullet Highlights */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                     {item.highlights.map((h, hIdx) => (
                       <div key={hIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--text-primary)' }}>
@@ -104,8 +115,29 @@ export default function Experience() {
               </div>
             ))}
           </div>
+
+          {/* See More / Show Less Toggle Button */}
+          {experienceData.length > 2 && (
+            <div style={{ textAlign: 'center', marginTop: '2.8rem' }}>
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="btn btn-outline"
+                style={{
+                  padding: '0.75rem 1.8rem',
+                  fontSize: '0.95rem',
+                  fontWeight: 600,
+                  borderRadius: 'var(--radius-full)',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                {showAll ? 'Show Less' : `See More Experience (${experienceData.length - 2} More Roles)`}
+                {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              </button>
+            </div>
+          )}
         </div>
 
+        {/* Testimonials Showcase */}
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <div className="section-tag" style={{ background: 'rgba(168, 85, 247, 0.1)', color: 'var(--accent-purple)', borderColor: 'rgba(168, 85, 247, 0.3)' }}>

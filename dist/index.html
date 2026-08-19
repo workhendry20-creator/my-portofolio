@@ -9,8 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600" rel="stylesheet">
+    <script>
+      (function() {
+        var isViteDev = (window.location.port === '3000' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'));
+        if (!isViteDev) {
+          var css = document.createElement('link');
+          css.rel = 'stylesheet';
+          css.href = './dist/assets/index.css';
+          document.head.appendChild(css);
+
+          var js = document.createElement('script');
+          js.type = 'module';
+          js.src = './dist/assets/index.js';
+          document.head.appendChild(js);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="./assets/index.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index.css">
   </head>
   <body>
     <div id="root"></div>
