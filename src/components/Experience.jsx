@@ -130,7 +130,7 @@ export default function Experience() {
                   boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                {showAll ? 'Show Less' : `See More Experience (${experienceData.length - 2} More Roles)`}
+                {showAll ? 'Show Less' : `See More Experience`}
                 {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
               </button>
             </div>

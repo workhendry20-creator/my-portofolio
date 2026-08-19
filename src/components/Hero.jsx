@@ -165,7 +165,7 @@ export default function Hero() {
                     boxShadow: 'var(--shadow-sm)'
                   }}
                 >
-                  ⚡ {badgeText}
+                  {badgeText}
                 </span>
               ))}
             </div>
