@@ -309,8 +309,10 @@ export default function Hero() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-end',
+                transformOrigin: 'bottom center',
                 transform: `
                   perspective(1000px)
+                  scale(1.25)
                   translate3d(${mousePos.x * 22}px, ${mousePos.y * 18}px, 0)
                   rotateY(${mousePos.x * 10}deg)
                   rotateX(${-mousePos.y * 10}deg)
@@ -324,11 +326,12 @@ export default function Hero() {
                 alt={personalInfo.name}
                 style={{
                   width: 'auto',
-                  maxHeight: '82vh',
-                  maxWidth: '100%',
+                  height: '88vh',
+                  maxHeight: '92vh',
+                  maxWidth: 'none',
                   objectFit: 'contain',
-                  objectPosition: 'bottom',
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4))',
+                  objectPosition: 'bottom center',
+                  filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.45))',
                   display: 'block'
                 }}
                 onError={(e) => {
