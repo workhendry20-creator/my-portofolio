@@ -46,21 +46,22 @@ export default function Navbar({ theme, toggleTheme }) {
         left: 0,
         right: 0,
         zIndex: 100,
-        padding: scrolled ? '0.75rem 0' : '1.1rem 0',
+        padding: scrolled ? '0.45rem 0' : '0.75rem 0',
         transition: 'all var(--transition-normal)',
-        background: scrolled ? 'var(--bg-glass)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid transparent',
+        background: scrolled ? 'var(--bg-glass)' : 'rgba(8, 12, 20, 0.75)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid rgba(255, 255, 255, 0.05)',
         boxShadow: scrolled ? 'var(--shadow-md)' : 'none'
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Brand Logo with Profile Avatar */}
-        <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontWeight: 800, fontSize: '1.35rem' }}>
+        <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontWeight: 800, fontSize: 'clamp(0.98rem, 3.8vw, 1.3rem)' }}>
           <div
             style={{
-              width: '38px',
-              height: '38px',
+              width: 'clamp(30px, 5.5vw, 36px)',
+              height: 'clamp(30px, 5.5vw, 36px)',
               borderRadius: '50%',
               overflow: 'hidden',
               border: '2px solid var(--accent-cyan)',
@@ -78,20 +79,20 @@ export default function Navbar({ theme, toggleTheme }) {
               }}
             />
           </div>
-          <span>
+          <span style={{ whiteSpace: 'nowrap' }}>
             Hendry Porto's
           </span>
         </a>
 
         {/* Right Header Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.35rem, 2vw, 0.7rem)' }}>
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
             style={{
-              width: '40px',
-              height: '40px',
+              width: 'clamp(32px, 7vw, 38px)',
+              height: 'clamp(32px, 7vw, 38px)',
               borderRadius: 'var(--radius-full)',
               background: 'var(--bg-tertiary)',
               color: 'var(--accent-cyan)',
@@ -100,15 +101,25 @@ export default function Navbar({ theme, toggleTheme }) {
               justifyContent: 'center',
               border: '1px solid var(--border-light)',
               transition: 'all var(--transition-normal)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              flexShrink: 0
             }}
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
 
           {/* Let's Talk CTA */}
-          <a href="#contact" className="btn btn-primary" style={{ padding: '0.55rem 1.1rem', fontSize: '0.88rem' }}>
-            Let's Talk <ArrowUpRight size={16} />
+          <a
+            href="#contact"
+            className="btn btn-primary"
+            style={{
+              padding: 'clamp(0.38rem, 1.5vw, 0.5rem) clamp(0.65rem, 2.5vw, 1rem)',
+              fontSize: 'clamp(0.75rem, 2.4vw, 0.85rem)',
+              whiteSpace: 'nowrap',
+              gap: '0.3rem'
+            }}
+          >
+            Let's Talk <ArrowUpRight size={14} />
           </a>
 
           {/* 3-Dots Navigation Menu Button */}
@@ -116,8 +127,8 @@ export default function Navbar({ theme, toggleTheme }) {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle Navigation Menu"
             style={{
-              width: '40px',
-              height: '40px',
+              width: 'clamp(32px, 7vw, 38px)',
+              height: 'clamp(32px, 7vw, 38px)',
               borderRadius: 'var(--radius-full)',
               background: menuOpen ? 'var(--gradient-primary)' : 'var(--bg-tertiary)',
               color: menuOpen ? '#ffffff' : 'var(--text-primary)',
@@ -127,10 +138,11 @@ export default function Navbar({ theme, toggleTheme }) {
               border: menuOpen ? 'none' : '1px solid var(--border-light)',
               boxShadow: menuOpen ? 'var(--shadow-glow)' : 'none',
               transition: 'all var(--transition-fast)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              flexShrink: 0
             }}
           >
-            {menuOpen ? <X size={22} /> : <MoreVertical size={22} />}
+            {menuOpen ? <X size={19} /> : <MoreVertical size={19} />}
           </button>
         </div>
       </div>
