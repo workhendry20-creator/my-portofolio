@@ -7,10 +7,10 @@ export default function Hero() {
 
   // Rotating roles / skills
   const roles = [
-    "Full-Stack & Computer Vision Developer",
+    "Full-Stack & Software Developer",
     "CEO & Founder @ Webtizen.id",
-    "Double Major: Info Systems & Physical Science",
-    "USM Computer Vision & Thermal Physics Researcher",
+    "Double Major: Information Systems & Physics",
+    "Computational Physics Specialist",
     "Data Science & Machine Learning Engineer"
   ];
 
@@ -220,10 +220,10 @@ export default function Hero() {
                 color: 'var(--text-secondary)',
                 lineHeight: 1.7,
                 marginBottom: '2.2rem',
-                maxWidth: '520px'
+                maxWidth: '540px'
               }}
             >
-              Bridging Software Engineering, Physical Science Simulation, and Data Analytics to build impactful digital solutions and research.
+              {personalInfo.tagline}
             </p>
 
             {/* CTA Buttons */}

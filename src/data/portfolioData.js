@@ -3,7 +3,7 @@ export const personalInfo = {
   shortName: "Hendry Bambang",
   role: "Full-Stack & Computer Vision Developer",
   subRole: "Double Major (Information Systems & Physical Science) | CEO @ Webtizen.id",
-  tagline: "Bridging Software Engineering, Physical Science Simulation, and Data Analytics to build impactful digital solutions and research.",
+  tagline: "Combining Information Systems with Computational Physics to engineer robust software platforms, process complex data pipelines, and build intelligent digital systems.",
   bio: "A highly driven Double Major Scholar (S1 Information Systems at UNIBI with GPA 3.70 & S1 Physical Science at UIN Sunan Gunung Djati). International Research Intern at Universiti Sains Malaysia (USM) developing Computer Vision thermal PV pipelines and Web Physics Engines, CEO & Founder of Webtizen.id, and Deputy Chair at Indonesian Youth Diplomacy (IYD) West Java.",
   location: "Bandung, Indonesia & Remote",
   email: "bambanghendry40@gmail.com",
