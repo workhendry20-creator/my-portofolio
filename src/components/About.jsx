@@ -168,14 +168,7 @@ export default function About() {
         </div>
 
         {/* Real CV Impact Metrics Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '1.5rem',
-            marginBottom: '4rem'
-          }}
-        >
+        <div className="about-stats-grid">
           {statsData.map((stat, idx) => {
             const IconComponent = iconMap[stat.icon] || Award;
             return (

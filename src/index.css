@@ -386,6 +386,38 @@ ul {
 }
 
 /* ==========================================================================
+   ABOUT STATS GRID 2-COLUMN LAYOUT ON MOBILE
+   ========================================================================== */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 640px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .about-stats-grid .glass-panel {
+    padding: 1.2rem 0.75rem !important;
+    text-align: center !important;
+  }
+
+  .about-stats-grid .glass-panel div:nth-child(2) {
+    font-size: 1.55rem !important;
+  }
+
+  .about-stats-grid .glass-panel div:nth-child(3) {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* ==========================================================================
    HERO RESPONSIVE PHOTO BACKGROUND OVERLAY FOR MOBILE
    ========================================================================== */
 .hero-grid {
