@@ -115,56 +115,80 @@ export default function Projects() {
               >
                 <div
                   style={{
-                    height: '180px',
-                    background: project.imageGradient,
+                    height: '190px',
+                    background: project.imageGradient || 'var(--gradient-primary)',
                     position: 'relative',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '1.2rem'
+                    overflow: 'hidden',
+                    cursor: 'pointer'
                   }}
+                  onClick={() => setSelectedProject(project)}
                 >
+                  {/* Dummy Cover Photo */}
+                  <img
+                    src={project.image || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'}
+                    alt={project.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.4s ease'
+                    }}
+                    className="cert-img-hover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+
+                  {/* Dark Gradient Overlay for Badges & Title */}
                   <div
                     style={{
                       position: 'absolute',
-                      top: '1rem',
-                      right: '1rem',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(to bottom, rgba(4, 7, 13, 0.4) 0%, rgba(4, 7, 13, 0.25) 40%, rgba(4, 7, 13, 0.85) 100%)',
                       display: 'flex',
-                      gap: '0.5rem'
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      padding: '1rem',
+                      pointerEvents: 'none'
                     }}
                   >
-                    {isFeaturedProject && (
-                      <span
-                        style={{
-                          padding: '0.25rem 0.6rem',
-                          borderRadius: 'var(--radius-full)',
-                          background: 'rgba(0, 0, 0, 0.45)',
-                          backdropFilter: 'blur(8px)',
-                          color: '#ffffff',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.3rem'
-                        }}
-                      >
-                        <Sparkles size={12} style={{ color: 'var(--accent-amber)' }} /> Featured
-                      </span>
-                    )}
-                  </div>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                      {isFeaturedProject && (
+                        <span
+                          style={{
+                            padding: '0.25rem 0.65rem',
+                            borderRadius: 'var(--radius-full)',
+                            background: 'rgba(0, 0, 0, 0.65)',
+                            backdropFilter: 'blur(8px)',
+                            color: '#ffffff',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.3rem'
+                          }}
+                        >
+                          <Sparkles size={12} style={{ color: 'var(--accent-amber)' }} /> Featured
+                        </span>
+                      )}
+                    </div>
 
-                  <h3
-                    style={{
-                      fontSize: '1.35rem',
-                      color: '#ffffff',
-                      fontWeight: 800,
-                      textAlign: 'center',
-                      textShadow: '0 4px 10px rgba(0,0,0,0.4)',
-                      lineHeight: 1.3
-                    }}
-                  >
-                    {headerTitle}
-                  </h3>
+                    <h3
+                      style={{
+                        fontSize: '1.25rem',
+                        color: '#ffffff',
+                        fontWeight: 800,
+                        textAlign: 'left',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.7)',
+                        lineHeight: 1.3
+                      }}
+                    >
+                      {headerTitle}
+                    </h3>
+                  </div>
                 </div>
 
                 <div style={{ padding: '1.8rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
