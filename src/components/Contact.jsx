@@ -21,7 +21,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -31,10 +31,40 @@ export default function Contact() {
 
     setStatus({ submitting: true, submitted: false, error: null });
 
-    setTimeout(() => {
+    try {
+      // Direct email dispatch to workhendry20@gmail.com via FormSubmit AJAX service
+      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject || `New Portfolio Message from ${formData.name}`,
+          message: formData.message,
+          _template: 'table'
+        })
+      });
+
+      if (response.ok) {
+        setStatus({ submitting: false, submitted: true, error: null });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        // Fallback: Open client mailto pre-filled
+        const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+        window.location.href = mailtoLink;
+        setStatus({ submitting: false, submitted: true, error: null });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch (err) {
+      // Fallback: Open client mailto pre-filled
+      const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      window.location.href = mailtoLink;
       setStatus({ submitting: false, submitted: true, error: null });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    }
   };
 
   return (
@@ -64,7 +94,7 @@ export default function Contact() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div className="glass-panel" style={{ padding: '2rem' }}>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '1.2rem' }}>Direct Channels</h3>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {/* Email */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
@@ -136,7 +166,7 @@ export default function Contact() {
                   <div>
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>LinkedIn</div>
                     <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
-                      linkedin.com/in/hendrybambang/
+                      Hendry Bambang
                     </a>
                   </div>
                 </div>

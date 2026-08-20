@@ -6,7 +6,7 @@ export const personalInfo = {
   tagline: "Merging Information Systems and Computational Physics—delivering expertise in both data analytics and software engineering.",
   bio: "A Double Major Scholar specializing in transforming complex data and algorithmic models into functional, high-performance software systems. Proficient across the full technical spectrum—from architecting computer vision image pipelines, machine learning models, and statistical data analytics to engineering full-stack web platforms and custom mathematical simulation engines.",
   location: "Bandung, Indonesia & Remote",
-  email: "bambanghendry40@gmail.com",
+  email: "workhendry20@gmail.com",
   linkedin: "https://linkedin.com/in/hendrybambang/",
   instagram: "https://instagram.com/hendry.b_",
   whatsapp: "https://wa.me/6287882927779",

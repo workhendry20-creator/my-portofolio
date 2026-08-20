@@ -136,7 +136,7 @@ export default function Footer() {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
           <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-            © {new Date().getFullYear()} {personalInfo.name}. Engineered with React & <Heart size={14} style={{ color: '#ef4444' }} />.
+            © {new Date().getFullYear()} {personalInfo.name}.
           </div>
 
           <button
