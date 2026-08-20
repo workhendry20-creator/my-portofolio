@@ -113,17 +113,9 @@ export default function Hero() {
           padding: '0 1.5rem'
         }}
       >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem',
-            alignItems: 'end',
-            minHeight: 'auto'
-          }}
-        >
+        <div className="hero-grid">
           {/* Left Column (Text & CTAs) */}
-          <div style={{ paddingBottom: '1.5rem', maxWidth: '620px' }}>
+          <div className="hero-text-col">
             {/* Availability Badge */}
             <div
               style={{
@@ -379,20 +371,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Full-Space Cutout Photo - Flush Bottom Alignment */}
-          <div
-            style={{
-              width: '100%',
-              height: '100%',
-              maxHeight: '86vh',
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'flex-end',
-              position: 'relative',
-              overflow: 'hidden',
-              clipPath: 'inset(0 0 0 0)'
-            }}
-          >
+          {/* Right Column: Full-Space Cutout Photo */}
+          <div className="hero-photo-wrapper">
             <div
               style={{
                 width: '100%',
@@ -414,17 +394,7 @@ export default function Hero() {
               <img
                 src="./assests/final_cutout.png"
                 alt={personalInfo.name}
-                style={{
-                  width: 'auto',
-                  height: '78vh',
-                  maxHeight: '82vh',
-                  maxWidth: 'none',
-                  objectFit: 'contain',
-                  objectPosition: 'bottom center',
-                  marginBottom: '-4px',
-                  filter: 'drop-shadow(0 10px 30px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.18))',
-                  display: 'block'
-                }}
+                className="hero-photo-img"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = './assets/final_cutout.png';
