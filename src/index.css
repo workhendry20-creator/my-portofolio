@@ -435,32 +435,42 @@ ul {
     gap: 0 !important;
     position: relative !important;
     overflow: hidden !important;
+    min-height: auto !important;
+  }
+
+  .hero-text-col {
+    position: relative !important;
+    z-index: 2 !important;
+    padding-bottom: 2rem !important;
+    background: transparent !important;
+    pointer-events: auto !important;
   }
 
   .hero-photo-wrapper {
     position: absolute !important;
+    top: 0 !important;
     bottom: 0 !important;
-    right: -25px !important;
+    right: -20px !important;
+    left: 0 !important;
     width: 100% !important;
-    height: 70vh !important;
-    max-height: 70vh !important;
+    height: 100% !important;
+    max-height: 100% !important;
     opacity: 0.35 !important;
     pointer-events: none !important;
     z-index: 1 !important;
+    display: flex !important;
     justify-content: flex-end !important;
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
+    align-items: flex-end !important;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0) 100%);
   }
 
   .hero-photo-img {
-    height: 62vh !important;
-    max-height: 62vh !important;
+    height: 65vh !important;
+    max-height: 65vh !important;
+    object-fit: contain !important;
+    object-position: bottom right !important;
     filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)) !important;
-  }
-
-  .hero-text-col {
-    z-index: 2 !important;
-    padding-bottom: 2rem !important;
   }
 }
 
