@@ -73,17 +73,18 @@ export default function About() {
                     flexShrink: 0
                   }}
                 >
-                  <picture style={{ width: '100%', height: '100%', display: 'block' }}>
-                    <source srcSet="./assets/final.webp" type="image/webp" />
-                    <img
-                      src="./assets/final.jpg"
-                      alt={personalInfo.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="async"
-                    />
-                  </picture>
+                  <img
+                    src="./assets/final.webp"
+                    alt={personalInfo.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = './assets/final.jpg';
+                    }}
+                  />
                 </div>
                 <div>
                   <h3 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0 }}>{personalInfo.name}</h3>

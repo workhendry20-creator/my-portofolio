@@ -434,14 +434,14 @@ ul {
     grid-template-columns: 1fr !important;
     gap: 0 !important;
     position: relative !important;
+    overflow: hidden !important;
   }
 
   .hero-photo-wrapper {
     position: absolute !important;
     bottom: 0 !important;
-    right: 0 !important;
+    right: -25px !important;
     width: 100% !important;
-    max-width: 100% !important;
     height: 70vh !important;
     max-height: 70vh !important;
     opacity: 0.35 !important;
@@ -455,7 +455,6 @@ ul {
   .hero-photo-img {
     height: 62vh !important;
     max-height: 62vh !important;
-    max-width: 100% !important;
     filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)) !important;
   }
 

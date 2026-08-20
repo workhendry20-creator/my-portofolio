@@ -69,17 +69,18 @@ export default function Navbar({ theme, toggleTheme }) {
               flexShrink: 0
             }}
           >
-            <picture style={{ width: '100%', height: '100%', display: 'block' }}>
-              <source srcSet="./assets/final.webp" type="image/webp" />
-              <img
-                src="./assets/final.jpg"
-                alt={personalInfo.name}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </picture>
+            <img
+              src="./assets/final.webp"
+              alt={personalInfo.name}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = './assets/final.jpg';
+              }}
+            />
           </div>
           <span style={{ whiteSpace: 'nowrap' }}>
             Hendry's Porto
