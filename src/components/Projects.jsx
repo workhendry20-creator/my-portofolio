@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FolderGit2, ExternalLink, Github, Eye, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
@@ -7,6 +7,15 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const getCategoryCount = (catId) => {
     if (catId === 'all') return projectsData.length;
@@ -25,7 +34,8 @@ export default function Projects() {
     ? projectsData
     : projectsData.filter((p) => p.category === activeFilter);
 
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
+  const initialCount = isMobile ? 1 : 3;
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, initialCount);
 
   return (
     <section id="projects" className="section" style={{ background: 'var(--bg-secondary)' }}>
@@ -241,7 +251,7 @@ export default function Projects() {
         </div>
 
         {/* See More Toggle Button */}
-        {filteredProjects.length > 3 && (
+        {filteredProjects.length > initialCount && (
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
             <button
               onClick={() => setShowAll(!showAll)}

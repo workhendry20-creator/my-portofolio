@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Award, ShieldCheck, Calendar, ChevronDown, ChevronUp, CheckCircle2, FileCheck, Eye, X } from 'lucide-react';
 import { certificationsData } from '../data/portfolioData';
 
 export default function Certifications() {
   const [showAll, setShowAll] = useState(false);
   const [activeModalImage, setActiveModalImage] = useState(null);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
 
-  // Show top 3 certifications initially, expand to all when showAll is true
-  const visibleCertifications = showAll ? certificationsData : certificationsData.slice(0, 3);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Show 1 certification initially on mobile, 3 on desktop
+  const initialCount = isMobile ? 1 : 3;
+  const visibleCertifications = showAll ? certificationsData : certificationsData.slice(0, initialCount);
 
   return (
     <section id="certifications" className="section" style={{ background: 'var(--bg-secondary)' }}>
@@ -225,7 +235,7 @@ export default function Certifications() {
         </div>
 
         {/* See More Toggle Button */}
-        {certificationsData.length > 3 && (
+        {certificationsData.length > initialCount && (
           <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             <button
               onClick={() => setShowAll(!showAll)}
