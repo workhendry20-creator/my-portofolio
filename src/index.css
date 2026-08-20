@@ -339,49 +339,50 @@ ul {
    ========================================================================== */
 @media (max-width: 640px) {
   html {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 1.1rem;
   }
 
   .section {
-    padding: 3.2rem 0;
+    padding: 4rem 0;
   }
 
   .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
   }
 
   .section-tag {
-    font-size: 0.78rem;
-    padding: 0.32rem 0.8rem;
-    margin-bottom: 0.75rem;
+    font-size: 0.82rem;
+    padding: 0.38rem 0.9rem;
+    margin-bottom: 0.85rem;
   }
 
   .section-title {
-    font-size: 1.65rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
   }
 
   .section-subtitle {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.98rem;
+    line-height: 1.6;
   }
 
   .glass-panel {
-    padding: 1.2rem !important;
+    padding: 1.5rem !important;
   }
 
   .btn {
-    padding: 0.7rem 1.25rem;
-    font-size: 0.88rem;
+    padding: 0.82rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
   }
 
   .modal-overlay {
-    padding: 0.75rem;
+    padding: 0.85rem;
   }
 }
 
@@ -441,7 +442,8 @@ ul {
   .hero-text-col {
     position: relative !important;
     z-index: 2 !important;
-    padding-bottom: 2rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 2.5rem !important;
     max-width: 100% !important;
     background: transparent !important;
     pointer-events: auto !important;
@@ -450,26 +452,26 @@ ul {
   .hero-photo-wrapper {
     position: absolute !important;
     bottom: 0 !important;
-    right: -25px !important;
+    right: -15px !important;
     width: 100% !important;
-    height: 75vh !important;
-    max-height: 75vh !important;
-    opacity: 0.35 !important;
+    height: 78vh !important;
+    max-height: 78vh !important;
+    opacity: 0.42 !important;
     pointer-events: none !important;
     z-index: 1 !important;
     display: flex !important;
     justify-content: flex-end !important;
     align-items: flex-end !important;
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.98) 45%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.98) 45%, rgba(0, 0, 0, 0) 100%);
   }
 
   .hero-photo-img {
-    height: 65vh !important;
-    max-height: 65vh !important;
+    height: 70vh !important;
+    max-height: 70vh !important;
     object-fit: contain !important;
     object-position: bottom right !important;
-    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)) !important;
+    filter: drop-shadow(0 0 35px rgba(6, 182, 212, 0.5)) drop-shadow(0 0 70px rgba(99, 102, 241, 0.3)) !important;
   }
 }
 

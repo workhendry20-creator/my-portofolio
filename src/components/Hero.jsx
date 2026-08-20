@@ -149,7 +149,7 @@ export default function Hero() {
             {/* Name Headline */}
             <h1
               style={{
-                fontSize: 'clamp(1.85rem, 5.5vw, 3.8rem)',
+                fontSize: 'clamp(2.15rem, 7.8vw, 3.8rem)',
                 fontWeight: 900,
                 lineHeight: 1.15,
                 letterSpacing: '-0.03em',
@@ -173,8 +173,8 @@ export default function Hero() {
             {/* Sub-headline / Dynamic Rotating Role */}
             <div
               style={{
-                fontSize: 'clamp(0.95rem, 3.2vw, 1.3rem)',
-                fontWeight: 700,
+                fontSize: 'clamp(1.05rem, 4.2vw, 1.35rem)',
+                fontWeight: 800,
                 color: 'var(--text-primary)',
                 marginBottom: '1rem',
                 display: 'flex',
@@ -211,7 +211,7 @@ export default function Hero() {
             {/* Description */}
             <p
               style={{
-                fontSize: 'clamp(0.92rem, 2.6vw, 1.05rem)',
+                fontSize: 'clamp(0.98rem, 3.4vw, 1.1rem)',
                 color: 'var(--text-secondary)',
                 lineHeight: 1.65,
                 marginBottom: '2rem',
