@@ -2,7 +2,10 @@ import React from 'react';
 import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2 } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
-  if (!project) return null;
+  const categoryBadge = project.categoryLabel || project.badgePill;
+  const headerTitle = project.bannerTitle || project.title;
+  const repoLink = project.github || project.repoUrl;
+  const demoLink = project.liveDemo || project.demoUrl;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -12,7 +15,7 @@ export default function ProjectModal({ project, onClose }) {
         style={{
           width: '100%',
           maxWidth: '750px',
-          maxHeight: '90vh',
+          maxHeight: '85vh',
           overflowY: 'auto',
           padding: '2rem',
           position: 'relative',
@@ -35,7 +38,8 @@ export default function ProjectModal({ project, onClose }) {
             alignItems: 'center',
             justifyContent: 'center',
             border: '1px solid var(--border-light)',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            zIndex: 10
           }}
         >
           <X size={20} />
@@ -51,22 +55,23 @@ export default function ProjectModal({ project, onClose }) {
             justifyContent: 'center',
             marginBottom: '1.5rem',
             boxShadow: 'var(--shadow-md)',
-            position: 'relative'
+            position: 'relative',
+            padding: '1rem'
           }}
         >
-          <h3 style={{ fontSize: '2rem', color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)', textAlign: 'center', padding: '0 1rem' }}>
-            {project.title}
+          <h3 style={{ fontSize: '1.8rem', color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+            {headerTitle}
           </h3>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
-          <span className="badge">{project.categoryLabel}</span>
+          <span className="badge">{categoryBadge}</span>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>ID: {project.id}</span>
         </div>
 
         <h3 style={{ fontSize: '1.6rem', marginBottom: '0.8rem' }}>{project.title}</h3>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-          {project.description}
+          {project.description || project.summary}
         </p>
 
         {project.metrics && project.metrics.length > 0 && (
@@ -117,12 +122,16 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            Live Preview <ExternalLink size={16} />
-          </a>
-          <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-            View Source Code <Github size={16} />
-          </a>
+          {demoLink && (
+            <a href={demoLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Live Preview <ExternalLink size={16} />
+            </a>
+          )}
+          {repoLink && (
+            <a href={repoLink} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+              View Source Code <Github size={16} />
+            </a>
+          )}
         </div>
       </div>
     </div>
