@@ -8,23 +8,22 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
+  const getCategoryCount = (catId) => {
+    if (catId === 'all') return projectsData.length;
+    return projectsData.filter((p) => p.category === catId).length;
+  };
+
   const filters = [
-    { id: 'all', label: 'All Projects (10)' },
-    { id: 'web', label: 'Web & Software Engineering' },
-    { id: 'research', label: 'USM AI & Computational Physics' },
-    { id: 'data', label: 'Data Science & Systems' },
-    { id: 'startup', label: 'Webtizen.id Startup' }
+    { id: 'all', label: `All Projects` },
+    { id: 'web', label: `Web & Software` },
+    { id: 'research', label: `AI & Physics Research` },
+    { id: 'data', label: `Data Science & Analytics` },
+    { id: 'startup', label: `Webtizen.id Startup` }
   ];
 
   const filteredProjects = activeFilter === 'all'
     ? projectsData
-    : projectsData.filter((p) => {
-        if (activeFilter === 'web') return p.category === 'web' || p.category === 'web-fullstack';
-        if (activeFilter === 'research') return p.category === 'research' || p.category === 'ai-physics';
-        if (activeFilter === 'data') return p.category === 'ai' || p.category === 'data-systems';
-        if (activeFilter === 'startup') return p.category === 'startup';
-        return p.category === activeFilter;
-      });
+    : projectsData.filter((p) => p.category === activeFilter);
 
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
