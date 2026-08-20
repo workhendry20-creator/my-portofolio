@@ -393,12 +393,9 @@ export default function Hero() {
               }}
             >
               <img
-                src="./assets/final_cutout.webp"
+                src="./assets/final_cutout.png"
                 alt={personalInfo.name}
                 className="hero-photo-img"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = './assets/final_cutout.png';

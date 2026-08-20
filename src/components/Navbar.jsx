@@ -70,12 +70,9 @@ export default function Navbar({ theme, toggleTheme }) {
             }}
           >
             <img
-              src="./assets/final.webp"
+              src={personalInfo.avatar || './assets/final.jpg'}
               alt={personalInfo.name}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = './assets/final.jpg';
