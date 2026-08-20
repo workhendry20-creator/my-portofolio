@@ -48,10 +48,10 @@ export default function Navbar({ theme, toggleTheme }) {
         zIndex: 100,
         padding: scrolled ? '0.45rem 0' : '0.75rem 0',
         transition: 'all var(--transition-normal)',
-        background: scrolled ? 'var(--bg-glass)' : 'rgba(8, 12, 20, 0.75)',
+        background: 'var(--bg-glass)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: scrolled ? '1px solid var(--border-light)' : '1px solid rgba(255, 255, 255, 0.05)',
+        borderBottom: '1px solid var(--border-light)',
         boxShadow: scrolled ? 'var(--shadow-md)' : 'none'
       }}
     >
@@ -80,7 +80,7 @@ export default function Navbar({ theme, toggleTheme }) {
             />
           </div>
           <span style={{ whiteSpace: 'nowrap' }}>
-            Hendry Porto's
+            Hendry's Porto
           </span>
         </a>
 
