@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { FolderGit2, ExternalLink, Github, Eye, Sparkles } from 'lucide-react';
+import { FolderGit2, ExternalLink, Github, Eye, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const filters = [
     { id: 'all', label: 'All Projects (10)' },
@@ -24,6 +25,8 @@ export default function Projects() {
         if (activeFilter === 'startup') return p.category === 'startup';
         return p.category === activeFilter;
       });
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
   return (
     <section id="projects" className="section" style={{ background: 'var(--bg-secondary)' }}>
@@ -52,7 +55,10 @@ export default function Projects() {
           {filters.map((f) => (
             <button
               key={f.id}
-              onClick={() => setActiveFilter(f.id)}
+              onClick={() => {
+                setActiveFilter(f.id);
+                setShowAll(false);
+              }}
               style={{
                 padding: '0.6rem 1.4rem',
                 borderRadius: 'var(--radius-full)',
@@ -77,7 +83,7 @@ export default function Projects() {
             gap: '2rem'
           }}
         >
-          {filteredProjects.map((project) => {
+          {displayedProjects.map((project) => {
             const isFeaturedProject = project.featured || project.isFeatured;
             const categoryBadge = project.categoryLabel || project.badgePill;
             const headerTitle = project.bannerTitle || project.title;
@@ -231,6 +237,30 @@ export default function Projects() {
             );
           })}
         </div>
+
+        {/* See More Toggle Button */}
+        {filteredProjects.length > 3 && (
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="btn btn-outline"
+              style={{
+                padding: '0.75rem 1.8rem',
+                fontSize: '0.95rem',
+                fontWeight: 600,
+                borderRadius: 'var(--radius-full)',
+                boxShadow: 'var(--shadow-sm)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                cursor: 'pointer'
+              }}
+            >
+              {showAll ? 'Show Less' : `See More Projects`}
+              {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+            </button>
+          </div>
+        )}
       </div>
 
       {selectedProject && (
