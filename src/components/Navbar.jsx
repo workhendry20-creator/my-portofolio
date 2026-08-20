@@ -70,12 +70,12 @@ export default function Navbar({ theme, toggleTheme }) {
             }}
           >
             <img
-              src="./assests/final.jpg"
+              src={personalInfo.avatar || './assets/final.jpg'}
               alt={personalInfo.name}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = './assets/photo.jpg';
+                e.target.src = './assets/final.jpg';
               }}
             />
           </div>
