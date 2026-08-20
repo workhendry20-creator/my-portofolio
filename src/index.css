@@ -418,6 +418,36 @@ ul {
 }
 
 /* ==========================================================================
+   SKILLS TABS GRID 2-COLUMN LAYOUT ON MOBILE
+   ========================================================================== */
+.skills-tabs-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+  .skills-tabs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .skills-tabs-grid button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.65rem 0.6rem !important;
+    font-size: 0.78rem !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* ==========================================================================
    HERO RESPONSIVE PHOTO BACKGROUND OVERLAY FOR MOBILE
    ========================================================================== */
 .hero-grid {

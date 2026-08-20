@@ -26,15 +26,7 @@ export default function Skills() {
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '0.8rem',
-            marginBottom: '3rem'
-          }}
-        >
+        <div className="skills-tabs-grid">
           {skillCategories.map((cat) => {
             const IconComp = categoryIconMap[cat.icon] || Cpu;
             const isActive = activeTab === cat.id;
