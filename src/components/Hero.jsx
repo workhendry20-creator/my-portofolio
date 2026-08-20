@@ -156,11 +156,11 @@ export default function Hero() {
             {/* Name Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.2rem, 6.5vw, 4rem)',
+                fontSize: 'clamp(1.85rem, 5.5vw, 3.8rem)',
                 fontWeight: 900,
                 lineHeight: 1.15,
                 letterSpacing: '-0.03em',
-                marginBottom: '1rem',
+                marginBottom: '0.85rem',
                 color: 'var(--text-primary)'
               }}
             >
@@ -180,7 +180,7 @@ export default function Hero() {
             {/* Sub-headline / Dynamic Rotating Role */}
             <div
               style={{
-                fontSize: 'clamp(1rem, 3.8vw, 1.35rem)',
+                fontSize: 'clamp(0.95rem, 3.2vw, 1.3rem)',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
                 marginBottom: '1rem',
@@ -192,7 +192,7 @@ export default function Hero() {
                 wordBreak: 'break-word'
               }}
             >
-              <Sparkles size={20} style={{ color: '#06b6d4', flexShrink: 0 }} />
+              <Sparkles size={18} style={{ color: '#06b6d4', flexShrink: 0 }} />
               <span
                 style={{
                   background: 'linear-gradient(to right, #06b6d4, #3b82f6, #9333ea)',
@@ -218,10 +218,10 @@ export default function Hero() {
             {/* Description */}
             <p
               style={{
-                fontSize: '1.05rem',
+                fontSize: 'clamp(0.92rem, 2.6vw, 1.05rem)',
                 color: 'var(--text-secondary)',
-                lineHeight: 1.7,
-                marginBottom: '2.2rem',
+                lineHeight: 1.65,
+                marginBottom: '2rem',
                 maxWidth: '540px'
               }}
             >
