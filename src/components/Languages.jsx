@@ -22,7 +22,7 @@ export default function Languages() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.2rem',
             maxWidth: '900px',
             margin: '0 auto'

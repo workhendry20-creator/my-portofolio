@@ -12,18 +12,18 @@ const iconMap = {
 export default function About() {
   const bentoPillars = [
     {
-      title: "1. Academic Excellence (Double Degree)",
+      title: "1. Academic Excellence",
       subtitle: "S1 Information Systems & S1 Physics",
       desc: "Combining system architecture, relational database modeling, and physical science analytics for deep problem-solving.",
       icon: Award,
-      badge: "Double Major"
+      badge: "Double Degree"
     },
     {
       title: "2. Tech & Research (Computer Vision & Web Physics Engine)",
       subtitle: "Universiti Sains Malaysia (USM) International Research",
       desc: "Developed automated thermal Photovoltaic (PV) image processing in OpenCV/Python and built interactive HTML5 Web Physics Canvas engines.",
       icon: Zap,
-      badge: "USM Research Intern"
+      badge: "Researcher"
     },
     {
       title: "3. Leadership & Entrepreneurship",
@@ -54,7 +54,7 @@ export default function About() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2.5rem',
             marginBottom: '4rem',
             alignItems: 'stretch'
@@ -101,7 +101,7 @@ export default function About() {
                 {personalInfo.bio}
               </p>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
-                From developing computer vision thermal image pipelines at Universiti Sains Malaysia to founding Webtizen.id and winning DevFest 2024 UNIBI, I strive for technical rigor and real-world impact.
+                Driven by technical precision and analytical rigor, I combine data science with modern software architecture to solve complex computational challenges, automate workflows, and build scalable digital solutions.
               </p>
             </div>
 

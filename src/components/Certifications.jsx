@@ -29,7 +29,7 @@ export default function Certifications() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2rem',
             marginBottom: '2.5rem'
           }}
@@ -238,7 +238,7 @@ export default function Certifications() {
                 boxShadow: 'var(--shadow-sm)'
               }}
             >
-              {showAll ? 'Show Less' : `See More Certifications (${certificationsData.length - 3} More)`}
+              {showAll ? 'Show Less' : `See More Certifications`}
               {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
             </button>
           </div>

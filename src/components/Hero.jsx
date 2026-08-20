@@ -116,14 +116,14 @@ export default function Hero() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
             alignItems: 'end',
-            minHeight: '85vh'
+            minHeight: 'auto'
           }}
         >
           {/* Left Column (Text & CTAs) */}
-          <div style={{ paddingBottom: '3rem', maxWidth: '620px' }}>
+          <div style={{ paddingBottom: '1.5rem', maxWidth: '620px' }}>
             {/* Availability Badge */}
             <div
               style={{
@@ -138,7 +138,7 @@ export default function Hero() {
                 fontWeight: 600,
                 letterSpacing: '0.025em',
                 border: '1px solid rgba(16, 185, 129, 0.25)',
-                marginBottom: '1.5rem'
+                marginBottom: '1.2rem'
               }}
             >
               <span
@@ -156,11 +156,11 @@ export default function Hero() {
             {/* Name Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.5rem, 5.5vw, 4rem)',
+                fontSize: 'clamp(2.2rem, 6.5vw, 4rem)',
                 fontWeight: 900,
-                lineHeight: 1.12,
+                lineHeight: 1.15,
                 letterSpacing: '-0.03em',
-                marginBottom: '1.2rem',
+                marginBottom: '1rem',
                 color: 'var(--text-primary)'
               }}
             >
@@ -180,14 +180,16 @@ export default function Hero() {
             {/* Sub-headline / Dynamic Rotating Role */}
             <div
               style={{
-                fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
+                fontSize: 'clamp(1rem, 3.8vw, 1.35rem)',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
                 marginBottom: '1rem',
                 display: 'flex',
+                flexWrap: 'wrap',
                 alignItems: 'center',
-                gap: '0.5rem',
-                minHeight: '2.4rem'
+                gap: '0.4rem',
+                minHeight: '2.4rem',
+                wordBreak: 'break-word'
               }}
             >
               <Sparkles size={20} style={{ color: '#06b6d4', flexShrink: 0 }} />

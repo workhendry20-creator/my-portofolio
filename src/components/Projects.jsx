@@ -18,7 +18,7 @@ export default function Projects() {
     { id: 'web', label: `Web & Software` },
     { id: 'research', label: `AI & Physics Research` },
     { id: 'data', label: `Data Science & Analytics` },
-    { id: 'startup', label: `Webtizen.id Startup` }
+    { id: 'startup', label: `Startup` }
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -47,8 +47,10 @@ export default function Projects() {
             display: 'flex',
             justifyContent: 'center',
             flexWrap: 'wrap',
-            gap: '0.6rem',
-            marginBottom: '3rem'
+            gap: '0.5rem',
+            marginBottom: '2.5rem',
+            maxWidth: '100%',
+            padding: '0 0.2rem'
           }}
         >
           {filters.map((f) => (
@@ -59,15 +61,16 @@ export default function Projects() {
                 setShowAll(false);
               }}
               style={{
-                padding: '0.6rem 1.4rem',
+                padding: '0.5rem 1.1rem',
                 borderRadius: 'var(--radius-full)',
-                fontSize: '0.9rem',
+                fontSize: '0.85rem',
                 fontWeight: 600,
                 transition: 'all var(--transition-fast)',
                 background: activeFilter === f.id ? 'var(--gradient-primary)' : 'var(--bg-tertiary)',
                 color: activeFilter === f.id ? '#ffffff' : 'var(--text-secondary)',
                 border: activeFilter === f.id ? 'none' : '1px solid var(--border-light)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                whiteSpace: 'nowrap'
               }}
             >
               {f.label}
@@ -78,8 +81,8 @@ export default function Projects() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.8rem'
           }}
         >
           {displayedProjects.map((project) => {

@@ -332,3 +332,43 @@ ul {
   transform: scale(1.06);
 }
 
+/* ==========================================================================
+   MOBILE & SMALL SCREEN RESPONSIVE OVERFLOW PROTECTIONS
+   ========================================================================== */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .glass-panel {
+    padding: 1.25rem !important;
+  }
+
+  .btn {
+    padding: 0.75rem 1.3rem;
+    font-size: 0.9rem;
+  }
+
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+}
+
