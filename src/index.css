@@ -447,24 +447,25 @@ ul {
     width: 100% !important;
     height: 100% !important;
     max-height: 100% !important;
-    opacity: 0.35 !important;
+    opacity: 0.40 !important;
     pointer-events: none !important;
     z-index: 1 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: flex-end !important;
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 45%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95) 45%, rgba(0, 0, 0, 0) 100%);
   }
 
   .hero-photo-img {
-    width: auto !important;
-    height: 100% !important;
-    max-height: 100% !important;
+    width: 100% !important;
+    height: 105% !important;
+    max-height: 105% !important;
     max-width: 100% !important;
-    object-fit: contain !important;
-    object-position: bottom center !important;
-    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)) !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    transform: scale(1.1) translateY(3%);
+    filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.45)) !important;
   }
 
   .hero-text-col {
