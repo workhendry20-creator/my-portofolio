@@ -316,6 +316,8 @@ ul {
   justify-content: center;
   padding: 1.5rem;
   animation: fadeIn 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 @keyframes fadeIn {
@@ -438,8 +440,9 @@ ul {
   .hero-photo-wrapper {
     position: absolute !important;
     bottom: 0 !important;
-    right: -25px !important;
+    right: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     height: 70vh !important;
     max-height: 70vh !important;
     opacity: 0.35 !important;
@@ -453,6 +456,7 @@ ul {
   .hero-photo-img {
     height: 62vh !important;
     max-height: 62vh !important;
+    max-width: 100% !important;
     filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4)) !important;
   }
 

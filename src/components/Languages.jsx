@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Languages as LanguagesIcon, Award, ExternalLink, Eye, X, CheckCircle2 } from 'lucide-react';
 import { languagesData } from '../data/portfolioData';
 
 export default function Languages() {
   const [activeModalImage, setActiveModalImage] = useState(null);
+
+  useEffect(() => {
+    if (activeModalImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeModalImage]);
 
   return (
     <section id="languages" className="section" style={{ padding: '2.5rem 0' }}>
@@ -166,6 +177,7 @@ export default function Languages() {
               style={{
                 maxHeight: '72vh',
                 overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch',
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--border-light)',
                 background: 'var(--bg-tertiary)'

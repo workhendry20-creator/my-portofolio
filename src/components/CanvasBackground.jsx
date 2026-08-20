@@ -129,8 +129,10 @@ export default function CanvasBackground({ theme }) {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        right: 0,
+        bottom: 0,
+        width: '100%',
+        height: '100%',
         pointerEvents: 'none',
         zIndex: 0,
         opacity: 0.85

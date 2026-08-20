@@ -48,6 +48,7 @@ export default function Hero() {
 
   // Interactive 3D Cursor Tilt & Parallax effect
   const handleMouseMove = (e) => {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
     const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
@@ -392,7 +393,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="./assests/final_cutout.png"
+                src="./assets/final_cutout.png"
                 alt={personalInfo.name}
                 className="hero-photo-img"
                 onError={(e) => {

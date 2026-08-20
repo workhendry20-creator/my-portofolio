@@ -39,5 +39,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Fallback for static previewers (file://, Live Server, VS Code Webview) -->
+    <script>
+      if (window.location.protocol === 'file:' || !window.location.host) {
+        var script = document.createElement('script');
+        script.src = './dist/assets/index.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      }
+    </script>
   </body>
 </html>

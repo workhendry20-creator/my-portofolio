@@ -15,6 +15,17 @@ export default function Certifications() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (activeModalImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeModalImage]);
+
   // Show 1 certification initially on mobile, 3 on desktop
   const initialCount = isMobile ? 1 : 3;
   const visibleCertifications = showAll ? certificationsData : certificationsData.slice(0, initialCount);
@@ -318,6 +329,7 @@ export default function Certifications() {
               style={{
                 maxHeight: '72vh',
                 overflowY: 'auto',
+                WebkitOverflowScrolling: 'touch',
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--border-light)',
                 background: 'var(--bg-tertiary)'

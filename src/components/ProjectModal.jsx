@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2 } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
@@ -6,6 +6,13 @@ export default function ProjectModal({ project, onClose }) {
   const headerTitle = project.bannerTitle || project.title;
   const repoLink = project.github || project.repoUrl;
   const demoLink = project.liveDemo || project.demoUrl;
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -17,6 +24,7 @@ export default function ProjectModal({ project, onClose }) {
           maxWidth: '750px',
           maxHeight: '85vh',
           overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
           padding: '2rem',
           position: 'relative',
           borderRadius: 'var(--radius-lg)'

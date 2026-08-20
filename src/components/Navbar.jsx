@@ -153,10 +153,10 @@ export default function Navbar({ theme, toggleTheme }) {
           style={{
             position: 'absolute',
             top: '100%',
-            right: '1rem',
+            right: '0.75rem',
             left: 'auto',
             maxWidth: '380px',
-            width: 'calc(100vw - 2rem)',
+            width: 'calc(100% - 1.5rem)',
             marginTop: '0.5rem',
             background: 'var(--bg-card)',
             backdropFilter: 'blur(20px)',

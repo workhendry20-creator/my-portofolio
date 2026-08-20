@@ -407,7 +407,7 @@ export const certificationsData = [
     badge: "AWS Verified ☁️",
     category: "Cloud & AI",
     credentialId: "AWS-ML-AI-2026",
-    image: "./assests/AWS.jpeg",
+    image: "./assets/AWS.jpeg",
     imageGradient: "linear-gradient(135deg, #FF9900 0%, #232F3E 50%, #FF9900 100%)",
     description: "Official AWS Training certification in Machine Learning fundamentals, AI model training, evaluation metrics, and cloud AI architecture.",
     skills: ["AWS", "Machine Learning", "Artificial Intelligence", "Cloud Architecture"]
@@ -420,7 +420,7 @@ export const certificationsData = [
     badge: "Kaggle Verified 🏅",
     category: "Data Science",
     credentialId: "KAG-ML-2026-08",
-    image: "./assests/kaggle.png",
+    image: "./assets/kaggle.png",
     imageGradient: "linear-gradient(135deg, #20BEFF 0%, #0088CC 50%, #005588 100%)",
     description: "Certification in machine learning model development, Decision Trees, Random Forests, model validation, and Kaggle competitive pipelines.",
     skills: ["Kaggle", "Machine Learning", "Python", "Predictive Modeling"]
@@ -433,7 +433,7 @@ export const certificationsData = [
     badge: "RevoU Certified 🚀",
     category: "Data Analytics",
     credentialId: "DAMC-04082025-01-1-00678",
-    image: "./assests/revou.jpeg",
+    image: "./assets/revou.jpeg",
     imageGradient: "linear-gradient(135deg, #FF3366 0%, #CC0033 50%, #990022 100%)",
     description: "Certified intensive program in data analytics fundamentals, business metric modeling, data visualization, and decision-making strategy.",
     skills: ["Data Analytics", "Business Metrics", "Data Visualization", "Growth Analytics"]
@@ -446,7 +446,7 @@ export const certificationsData = [
     badge: "Kemnaker RI 🇮🇩",
     category: "Vokasi & Reseacrh",
     credentialId: "2.5/317/LP.00.05/11/2025",
-    image: "./assests/waste.jpeg",
+    image: "./assets/waste.jpeg",
     imageGradient: "linear-gradient(135deg, #10B981 0%, #047857 50%, #065F46 100%)",
     description: "Official vocational certification from BBPVP Bandung Ministry of Manpower RI in organic waste processing tech and sustainable environmental systems.",
     skills: ["Kemnaker RI", "Pengolahan Sampah", "Vokasi Pertanian", "Environmental Tech"]
@@ -459,7 +459,7 @@ export const certificationsData = [
     badge: "Google Certified 📜",
     category: "Google",
     credentialId: "129325160",
-    image: "./assests/google360.jpeg",
+    image: "./assets/google360.jpeg",
     imageGradient: "linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%)",
     description: "Official Google certification in Campaign Manager 360, digital ad workflow management, tag implementation, and performance analytics.",
     skills: ["Google Campaign Manager", "Digital Advertising", "Ad Analytics", "Brand Campaign 360"]
@@ -484,7 +484,7 @@ export const certificationsData = [
     badge: "Pass Grade 📊",
     category: "Data Science",
     credentialId: "301e618c309444869d7cb041657d1b5c",
-    image: "./assests/datascience.jpeg",
+    image: "./assets/datascience.jpeg",
     imageGradient: "linear-gradient(135deg, #3776AB 0%, #FFD43B 50%, #4B8BBE 100%)",
     description: "Achieved 98% passing grade in IBM Python 101 for Data Science covering Pandas DataFrames, NumPy multi-dimensional arrays, and REST APIs.",
     skills: ["Python", "Data Science", "Pandas", "NumPy"]
@@ -497,7 +497,7 @@ export const certificationsData = [
     badge: "Perfect Score 🎯",
     category: "Data & DB",
     credentialId: "9e2ecd9fef05485d8518ff42565e127f",
-    image: "./assests/SQL.jpeg",
+    image: "./assets/SQL.jpeg",
     imageGradient: "linear-gradient(135deg, #052F5F 0%, #006699 50%, #0099CC 100%)",
     description: "Achieved 100% perfect score in Relational Database concepts, SQL DDL/DML queries, relational schema design, indexing, and join optimization.",
     skills: ["SQL", "Relational Database", "Schema Design", "Query Optimization"]
@@ -523,7 +523,7 @@ export const languagesData = [
     badge: "C2 Proficient 🏆",
     score: "75/100 (C2 Mastery)",
     date: "April 7, 2026",
-    image: "./assests/language.png",
+    image: "./assets/language.png",
     certUrl: "https://cert.efset.org/en/fP56ow",
     description: "Official EF SET English Certificate - C2 Proficient (Mastery Level) for international research, Y20 diplomacy, and global engineering.",
     certification: "EF SET Certified (Apr 2026)"
