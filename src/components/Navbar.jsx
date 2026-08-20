@@ -153,15 +153,17 @@ export default function Navbar({ theme, toggleTheme }) {
           style={{
             position: 'absolute',
             top: '100%',
-            right: '1.5rem',
+            right: '1rem',
+            left: 'auto',
             maxWidth: '380px',
-            width: 'calc(100vw - 3rem)',
-            marginTop: '0.6rem',
+            width: 'calc(100vw - 2rem)',
+            marginTop: '0.5rem',
             background: 'var(--bg-card)',
             backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid var(--border-light)',
             borderRadius: 'var(--radius-lg)',
-            padding: '1.2rem',
+            padding: '0.85rem',
             boxShadow: 'var(--shadow-lg)',
             zIndex: 101,
             animation: 'fadeIn 0.2s ease-out'
@@ -169,27 +171,27 @@ export default function Navbar({ theme, toggleTheme }) {
         >
           <div
             style={{
-              fontSize: '0.78rem',
+              fontSize: '0.75rem',
               color: 'var(--text-muted)',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              marginBottom: '0.8rem',
+              marginBottom: '0.65rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.4rem',
-              paddingBottom: '0.4rem',
+              paddingBottom: '0.35rem',
               borderBottom: '1px solid var(--border-light)'
             }}
           >
-            <Compass size={14} /> Navigation Menu
+            <Compass size={14} /> Navigation Menu (8)
           </div>
 
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: '0.6rem'
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '0.5rem'
             }}
           >
             {navItems.map((item) => {
@@ -202,26 +204,29 @@ export default function Navbar({ theme, toggleTheme }) {
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    padding: '0.7rem 0.9rem',
+                    padding: '0.55rem 0.75rem',
                     borderRadius: 'var(--radius-md)',
                     background: isActive ? 'var(--gradient-subtle)' : 'var(--bg-tertiary)',
                     border: isActive ? '1px solid rgba(6, 182, 212, 0.3)' : '1px solid var(--border-light)',
                     transition: 'all var(--transition-fast)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.2rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.15rem' }}>
                     <span
                       style={{
-                        fontSize: '0.92rem',
+                        fontSize: '0.86rem',
                         fontWeight: isActive ? 700 : 600,
-                        color: isActive ? 'var(--accent-cyan)' : 'var(--text-primary)'
+                        color: isActive ? 'var(--accent-cyan)' : 'var(--text-primary)',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
                       }}
                     >
                       {item.label}
                     </span>
-                    <ChevronRight size={14} style={{ color: isActive ? 'var(--accent-cyan)' : 'var(--text-muted)' }} />
+                    <ChevronRight size={13} style={{ color: isActive ? 'var(--accent-cyan)' : 'var(--text-muted)', flexShrink: 0 }} />
                   </div>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {item.desc}
                   </span>
                 </a>
