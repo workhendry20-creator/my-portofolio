@@ -5,6 +5,47 @@ import { personalInfo } from '../data/portfolioData';
 export default function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+  // Rotating roles / skills
+  const roles = [
+    "Full-Stack & Computer Vision Developer",
+    "CEO & Founder @ Webtizen.id",
+    "Double Major: Info Systems & Physical Science",
+    "USM Computer Vision & Thermal Physics Researcher",
+    "Data Science & Machine Learning Engineer"
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const fullText = roles[roleIndex];
+    let timeoutId;
+
+    if (!isDeleting) {
+      if (currentText.length < fullText.length) {
+        timeoutId = setTimeout(() => {
+          setCurrentText(fullText.slice(0, currentText.length + 1));
+        }, 70);
+      } else {
+        timeoutId = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      }
+    } else {
+      if (currentText.length > 0) {
+        timeoutId = setTimeout(() => {
+          setCurrentText(fullText.slice(0, currentText.length - 1));
+        }, 35);
+      } else {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [currentText, isDeleting, roleIndex]);
+
   // Interactive 3D Cursor Tilt & Parallax effect
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -136,20 +177,40 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Sub-headline / Role */}
+            {/* Sub-headline / Dynamic Rotating Role */}
             <div
               style={{
-                fontSize: '1.25rem',
+                fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
                 fontWeight: 700,
                 color: 'var(--text-primary)',
                 marginBottom: '1rem',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem'
+                gap: '0.5rem',
+                minHeight: '2.4rem'
               }}
             >
-              <Sparkles size={20} style={{ color: '#06b6d4' }} />
-              Full-Stack & Computer Vision Developer
+              <Sparkles size={20} style={{ color: '#06b6d4', flexShrink: 0 }} />
+              <span
+                style={{
+                  background: 'linear-gradient(to right, #06b6d4, #3b82f6, #9333ea)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  display: 'inline-block'
+                }}
+              >
+                {currentText}
+              </span>
+              <span
+                style={{
+                  color: '#06b6d4',
+                  fontWeight: 600,
+                  marginLeft: '2px',
+                  display: 'inline-block'
+                }}
+              >
+                |
+              </span>
             </div>
 
             {/* Description */}
