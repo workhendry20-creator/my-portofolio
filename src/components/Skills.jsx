@@ -18,9 +18,6 @@ export default function Skills() {
     <section id="skills" className="section">
       <div className="container">
         <div className="section-header">
-          <div className="section-tag">
-            <Cpu size={14} /> Technical Stack & Skills
-          </div>
           <h2 className="section-title">
             Engineering & Scientific <span className="gradient-text">Competencies</span>
           </h2>

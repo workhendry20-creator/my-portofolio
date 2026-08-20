@@ -10,9 +10,6 @@ export default function Languages() {
       <div className="container">
         {/* Compact Section Header */}
         <div className="section-header" style={{ marginBottom: '1.8rem' }}>
-          <div className="section-tag" style={{ fontSize: '0.8rem', padding: '0.25rem 0.8rem' }}>
-            <LanguagesIcon size={13} /> Languages
-          </div>
           <h3 style={{ fontSize: '1.8rem', fontWeight: 800, margin: '0.4rem 0' }}>
             Language <span className="gradient-text">Proficiency</span>
           </h3>

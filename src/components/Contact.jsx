@@ -71,9 +71,6 @@ export default function Contact() {
     <section id="contact" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <div className="section-header">
-          <div className="section-tag">
-            <MessageSquare size={14} /> Contact & Connect
-          </div>
           <h2 className="section-title">
             Let's Collaborate & <span className="gradient-text">Build Impact</span>
           </h2>

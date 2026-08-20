@@ -24,9 +24,6 @@ export default function Certifications() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">
-            <Award size={14} /> Verified Credentials
-          </div>
           <h2 className="section-title">
             Certifications & <span className="gradient-text">Accreditations</span>
           </h2>

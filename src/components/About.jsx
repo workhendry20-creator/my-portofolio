@@ -39,9 +39,6 @@ export default function About() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">
-            <User size={14} /> About Me
-          </div>
           <h2 className="section-title">
             Double Major, <span className="gradient-text">AI Researcher & Tech Founder</span>
           </h2>
@@ -232,9 +229,6 @@ export default function About() {
         {/* Key Achievements & Delegations Highlight Grid */}
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <div className="section-tag" style={{ background: 'rgba(245, 158, 11, 0.1)', color: 'var(--accent-amber)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
-              <Trophy size={14} /> Achievements & Delegations
-            </div>
             <h3 style={{ fontSize: '2rem' }}>Honors & Recognition</h3>
           </div>
 

@@ -13,9 +13,6 @@ export default function Experience() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-tag">
-            <Briefcase size={14} /> Career Journey
-          </div>
           <h2 className="section-title">
             Work Experience & <span className="gradient-text">Milestones</span>
           </h2>
@@ -140,9 +137,6 @@ export default function Experience() {
         {/* Testimonials Showcase */}
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <div className="section-tag" style={{ background: 'rgba(168, 85, 247, 0.1)', color: 'var(--accent-purple)', borderColor: 'rgba(168, 85, 247, 0.3)' }}>
-              <MessageSquareQuote size={14} /> Endorsements
-            </div>
             <h3 style={{ fontSize: '2rem' }}>What Collaborators Say</h3>
           </div>
 

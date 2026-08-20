@@ -41,9 +41,6 @@ export default function Projects() {
     <section id="projects" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <div className="section-header">
-          <div className="section-tag">
-            <FolderGit2 size={14} /> Featured Projects Grid
-          </div>
           <h2 className="section-title">
             Featured Projects & <span className="gradient-text">Scientific Repositories</span>
           </h2>
