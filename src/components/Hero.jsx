@@ -392,15 +392,17 @@ export default function Hero() {
                 willChange: 'transform'
               }}
             >
-              <img
-                src="./assets/final_cutout.png"
-                alt={personalInfo.name}
-                className="hero-photo-img"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = './assets/final_cutout.png';
-                }}
-              />
+              <picture style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'flex-end' }}>
+                <source srcSet="./assets/final_cutout.webp" type="image/webp" />
+                <img
+                  src="./assets/final_cutout.png"
+                  alt={personalInfo.name}
+                  className="hero-photo-img"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>

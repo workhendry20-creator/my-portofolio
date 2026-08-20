@@ -427,7 +427,6 @@ ul {
   margin-bottom: -4px;
   filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.35)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.18));
   display: block;
-  transition: opacity 0.3s ease;
 }
 
 @media (max-width: 767px) {
