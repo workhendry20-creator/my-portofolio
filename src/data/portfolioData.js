@@ -141,6 +141,27 @@ export const projectsData = [
     metrics: ["🚀 CEO & Founder", "Digitalizing MSMEs"]
   },
   {
+    id: "analisis-sentimen-transjakarta",
+    title: "Analisis Sentimen TransJakarta - Data Analyst & NLP Pipeline",
+    category: "data",
+    categoryLabel: "Data Analyst & NLP",
+    badgePill: "Data Analyst Project",
+    bannerTitle: "Analisis Sentimen TransJakarta",
+    image: "./assets/wordcloud_sentiment.png",
+    summary: "Data Analyst NLP pipeline analyzing public opinion and service satisfaction metrics for TransJakarta.",
+    description: "End-to-end Data Analyst project utilizing Natural Language Processing (NLP) techniques to evaluate public feedback and sentiment regarding TransJakarta public transit. Features automated text preprocessing, sentiment classification, key opinion extraction, and interactive data visualization.",
+    tags: ["Data Analyst", "Sentiment Analysis", "NLP", "Python", "Pandas", "Data Visualization"],
+    imageGradient: "linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%)",
+    bannerGradient: "from-sky-600 via-blue-600 to-indigo-600",
+    featured: true,
+    isFeatured: true,
+    github: "https://github.com/workhendry20-creator/analisis-sentimen-transjakarta.git",
+    repoUrl: "https://github.com/workhendry20-creator/analisis-sentimen-transjakarta.git",
+    liveDemo: null,
+    demoUrl: null,
+    metrics: ["📊 Data Analyst & Sentiment Pipeline", "🚌 TransJakarta Public Insight & NLP"]
+  },
+  {
     id: "ml-analytics",
     title: "Machine Learning Predictive Modeling",
     category: "data",
