@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2, Image as ImageIcon } from 'lucide-react';
+import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2 } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   const categoryBadge = project.categoryLabel || project.badgePill;
@@ -55,10 +55,10 @@ export default function ProjectModal({ project, onClose }) {
           <X size={20} />
         </button>
 
-        {/* Modal Banner Header with Project Image */}
+        {/* Modal Header Banner with Project Image */}
         <div
           style={{
-            height: '240px',
+            height: '220px',
             borderRadius: 'var(--radius-md)',
             background: project.imageGradient || 'var(--gradient-primary)',
             position: 'relative',
@@ -97,7 +97,7 @@ export default function ProjectModal({ project, onClose }) {
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'linear-gradient(to bottom, rgba(4, 7, 13, 0.3) 0%, rgba(4, 7, 13, 0.6) 50%, rgba(4, 7, 13, 0.9) 100%)',
+              background: 'linear-gradient(to bottom, rgba(4, 7, 13, 0.3) 0%, rgba(4, 7, 13, 0.6) 50%, rgba(4, 7, 13, 0.95) 100%)',
               zIndex: 2
             }}
           />
@@ -123,40 +123,6 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         <h3 style={{ fontSize: '1.6rem', marginBottom: '0.8rem', fontWeight: 700 }}>{project.title}</h3>
-
-        {/* Full Image Preview Section */}
-        {projectImg && (
-          <div style={{ marginBottom: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.8rem' }}>
-              <ImageIcon size={18} style={{ color: 'var(--accent-cyan)' }} /> Project Screenshot & Visualization Preview:
-            </div>
-            <div
-              style={{
-                maxHeight: '72vh',
-                overflowY: 'auto',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border-light)',
-                background: 'var(--bg-tertiary)',
-                padding: '0.5rem'
-              }}
-            >
-              <img
-                src={projectImg}
-                alt={`${project.title} Preview`}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: 'var(--radius-sm)',
-                  display: 'block',
-                  objectFit: 'contain'
-                }}
-                onError={(e) => {
-                  e.target.parentElement.style.display = 'none';
-                }}
-              />
-            </div>
-          </div>
-        )}
 
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
           {project.description || project.summary}
