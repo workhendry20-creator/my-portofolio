@@ -183,6 +183,27 @@ export const projectsData = [
     metrics: ["📊 Data Analyst & Sentiment Pipeline", "🚌 TransJakarta Public Insight & NLP"]
   },
   {
+    id: "saas-customer-churn-analysis",
+    title: "SaaS Customer Churn Analysis & EDA Insights",
+    category: "data",
+    categoryLabel: "SaaS & Customer Analytics",
+    badgePill: "Data Analyst Project",
+    bannerTitle: "SaaS Customer Churn Analysis",
+    image: "./assets/EDA.png",
+    summary: "Comprehensive Exploratory Data Analysis (EDA) examining SaaS customer retention, churn drivers, and revenue metrics.",
+    description: "End-to-end Data Analyst project performing in-depth Exploratory Data Analysis (EDA) on SaaS customer subscription data. Uncovers key customer churn drivers, lifetime value (LTV) dynamics, subscription tier retention rates, and actionable strategies to mitigate churn using Python data analytics.",
+    tags: ["Data Analyst", "Python", "Pandas", "Exploratory Data Analysis", "Customer Churn", "Data Visualization"],
+    imageGradient: "linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%)",
+    bannerGradient: "from-sky-500 via-blue-600 to-indigo-600",
+    featured: true,
+    isFeatured: true,
+    github: "https://github.com/workhendry20-creator/saas-customer-churn-analysis/tree/main",
+    repoUrl: "https://github.com/workhendry20-creator/saas-customer-churn-analysis/tree/main",
+    liveDemo: null,
+    demoUrl: null,
+    metrics: ["📊 Exploratory Data Analysis (EDA)", "📉 SaaS Customer Churn & Retention Insights"]
+  },
+  {
     id: "ml-analytics",
     title: "Machine Learning Predictive Modeling",
     category: "data",
