@@ -141,6 +141,27 @@ export const projectsData = [
     metrics: ["🚀 CEO & Founder", "Digitalizing MSMEs"]
   },
   {
+    id: "ecommerce-sales-analysis",
+    title: "E-Commerce Sales Analysis & Data Insights",
+    category: "data",
+    categoryLabel: "E-Commerce Data Analytics",
+    badgePill: "Data Analyst Project",
+    bannerTitle: "E-Commerce Sales Analysis",
+    image: "./assets/most_sold_product.png",
+    summary: "Comprehensive data analysis pipeline examining e-commerce sales performance, product revenue, and top-selling product distribution.",
+    description: "End-to-end Data Analyst project evaluating e-commerce sales performance, top revenue drivers, and product transaction trends. Uncovers actionable business insights into most sold products, sales metrics, and customer purchase behaviors using Python data analytics.",
+    tags: ["Data Analyst", "Python", "Pandas", "E-Commerce Analytics", "Data Visualization", "Sales Metrics"],
+    imageGradient: "linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%)",
+    bannerGradient: "from-emerald-500 via-cyan-500 to-blue-600",
+    featured: true,
+    isFeatured: true,
+    github: "https://github.com/workhendry20-creator/ecommerce-sales-analysis/tree/main",
+    repoUrl: "https://github.com/workhendry20-creator/ecommerce-sales-analysis/tree/main",
+    liveDemo: null,
+    demoUrl: null,
+    metrics: ["🛍️ Most Sold Product Analysis", "📊 E-Commerce Revenue & Sales Insights"]
+  },
+  {
     id: "analisis-sentimen-transjakarta",
     title: "Analisis Sentimen TransJakarta - Data Analyst & NLP Pipeline",
     category: "data",
