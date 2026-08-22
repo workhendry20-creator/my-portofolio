@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2 } from 'lucide-react';
+import { X, ExternalLink, Github, CheckCircle, Layers, BarChart2, Image as ImageIcon } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   const categoryBadge = project.categoryLabel || project.badgePill;
   const headerTitle = project.bannerTitle || project.title;
   const repoLink = project.github || project.repoUrl;
   const demoLink = project.liveDemo || project.demoUrl;
+  const projectImg = project.image || project.imageUrl;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -21,7 +22,7 @@ export default function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
         style={{
           width: '100%',
-          maxWidth: '750px',
+          maxWidth: '780px',
           maxHeight: '85vh',
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
@@ -40,44 +41,123 @@ export default function ProjectModal({ project, onClose }) {
             width: '36px',
             height: '36px',
             borderRadius: 'var(--radius-full)',
-            background: 'var(--bg-tertiary)',
-            color: 'var(--text-primary)',
+            background: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            color: '#ffffff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            border: '1px solid var(--border-light)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             cursor: 'pointer',
-            zIndex: 10
+            zIndex: 20
           }}
         >
           <X size={20} />
         </button>
 
+        {/* Modal Banner Header with Project Image */}
         <div
           style={{
-            height: '200px',
+            height: '240px',
             borderRadius: 'var(--radius-md)',
-            background: project.imageGradient,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            background: project.imageGradient || 'var(--gradient-primary)',
+            position: 'relative',
+            overflow: 'hidden',
             marginBottom: '1.5rem',
             boxShadow: 'var(--shadow-md)',
-            position: 'relative',
-            padding: '1rem'
+            display: 'flex',
+            alignItems: 'flex-end',
+            padding: '1.5rem'
           }}
         >
-          <h3 style={{ fontSize: '1.8rem', color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+          {projectImg && (
+            <img
+              src={projectImg}
+              alt={project.title}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 1
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          )}
+
+          {/* Dark Overlay Gradient for contrast */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(to bottom, rgba(4, 7, 13, 0.3) 0%, rgba(4, 7, 13, 0.6) 50%, rgba(4, 7, 13, 0.9) 100%)',
+              zIndex: 2
+            }}
+          />
+
+          <h3
+            style={{
+              fontSize: '1.8rem',
+              color: '#ffffff',
+              fontWeight: 800,
+              textShadow: '0 4px 12px rgba(0,0,0,0.8)',
+              position: 'relative',
+              zIndex: 3
+            }}
+          >
             {headerTitle}
           </h3>
         </div>
 
+        {/* Category Badge & Project ID */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
           <span className="badge">{categoryBadge}</span>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>ID: {project.id}</span>
         </div>
 
-        <h3 style={{ fontSize: '1.6rem', marginBottom: '0.8rem' }}>{project.title}</h3>
+        <h3 style={{ fontSize: '1.6rem', marginBottom: '0.8rem', fontWeight: 700 }}>{project.title}</h3>
+
+        {/* Full Image Preview Section */}
+        {projectImg && (
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.8rem' }}>
+              <ImageIcon size={18} style={{ color: 'var(--accent-cyan)' }} /> Project Screenshot & Visualization Preview:
+            </div>
+            <div
+              style={{
+                maxHeight: '72vh',
+                overflowY: 'auto',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-light)',
+                background: 'var(--bg-tertiary)',
+                padding: '0.5rem'
+              }}
+            >
+              <img
+                src={projectImg}
+                alt={`${project.title} Preview`}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 'var(--radius-sm)',
+                  display: 'block',
+                  objectFit: 'contain'
+                }}
+                onError={(e) => {
+                  e.target.parentElement.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+        )}
+
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
           {project.description || project.summary}
         </p>
